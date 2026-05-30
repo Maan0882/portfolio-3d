@@ -8,6 +8,7 @@ import LandingOverlay from "@/components/ui/LandingOverlay";
 import ContactOverlay from "@/components/ui/ContactOverlay";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import CanvasErrorBoundary from "@/components/ui/CanvasErrorBoundary";
+import ZoneInfoOverlay from "@/components/ui/ZoneInfoOverlay";
 
 // Dynamic import so Three.js never runs on server
 const Scene = dynamic(() => import("@/components/canvas/Scene"), {
@@ -111,6 +112,7 @@ export default function Home() {
       <LoadingScreen />
       <LandingOverlay />
       <HUD />
+      <ZoneInfoOverlay />
       <ContactOverlay />
     </div>
   );

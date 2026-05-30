@@ -11,7 +11,7 @@ export default function LandingOverlay() {
         <p className="landing-init-text">⬡ INITIALIZING DEVELOPER JOURNEY ⬡</p>
         <h1 className="landing-name">Mansi Gajjar</h1>
         <p className="landing-title">Full Stack Developer · MSc Information Technology</p>
-        <p className="landing-sub">Next.js · Laravel · Alpine.js · Docker · Livewire</p>
+        <p className="landing-sub">JavaScript · TypeScript · PHP · Python · SQL · Dart</p>
         <span className="landing-cta">↓ &nbsp; SCROLL TO BEGIN &nbsp; ↓</span>
       </div>
     </div>

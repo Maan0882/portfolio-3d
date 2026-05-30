@@ -176,7 +176,7 @@ function PDFEngine({ position }: { position: [number, number, number] }) {
 function ConveyorBelt({ position }: { position: [number, number, number] }) {
   const ref = useRef<any>(null!);
   useFrame(({ clock }) => {
-    if (ref.current?.material) {
+    if (ref.current?.material?.map) {
       ref.current.material.map.offset.x = clock.getElapsedTime() * 0.12;
     }
   });

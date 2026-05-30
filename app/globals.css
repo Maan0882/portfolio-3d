@@ -536,3 +536,412 @@ body {
     padding: 2.5rem 2rem;
   }
 }
+
+/* =====================================================
+   ZONE INFO OVERLAY — readable right-side panels
+   ===================================================== */
+
+/* Wrapper: fixed to right side, vertically centered */
+.zi-wrapper {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  max-height: 88vh;
+  z-index: 18;
+  pointer-events: none;
+}
+
+/* Slide-in animation on mount */
+@keyframes zi-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* The glassmorphism panel card */
+.zi-panel {
+  background: rgba(6, 9, 28, 0.86);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(148, 163, 184, 0.13);
+  border-radius: 20px;
+  padding: 1.4rem 1.5rem;
+  max-height: 88vh;
+  overflow-y: auto;
+  pointer-events: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 217, 255, 0.18) transparent;
+  animation: zi-slide-in 0.5s cubic-bezier(0.34, 1.15, 0.64, 1) both;
+  box-shadow:
+    0 0 60px rgba(0, 217, 255, 0.05),
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.zi-panel::-webkit-scrollbar         { width: 3px; }
+.zi-panel::-webkit-scrollbar-track   { background: transparent; }
+.zi-panel::-webkit-scrollbar-thumb   { background: rgba(0, 217, 255, 0.2); border-radius: 2px; }
+
+/* Zone tag */
+.zi-tag {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid rgba(0, 217, 255, 0.15);
+}
+
+/* Section wrapper */
+.zi-section {
+  margin-bottom: 0.25rem;
+}
+
+/* Horizontal rule */
+.zi-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.14), transparent);
+  margin: 0.85rem 0;
+}
+
+/* Section sub-title */
+.zi-section-title {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.6rem;
+}
+
+/* ── About Me section ── */
+.zi-name {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.15rem;
+  background: linear-gradient(135deg, var(--color-text), var(--color-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.zi-role {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-purple);
+  margin-bottom: 0.7rem;
+}
+
+.zi-bio {
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+/* Spoken language pills */
+.zi-lang-row {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.zi-badge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  padding: 0.22rem 0.7rem;
+  border-radius: 50px;
+}
+
+.zi-badge-purple {
+  color: var(--color-purple);
+  background: rgba(129, 140, 248, 0.08);
+  border: 1px solid rgba(129, 140, 248, 0.28);
+}
+
+/* Stats grid */
+.zi-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+
+.zi-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.12rem;
+  padding: 0.5rem 0.2rem;
+  background: rgba(0, 217, 255, 0.04);
+  border: 1px solid rgba(0, 217, 255, 0.1);
+  border-radius: 10px;
+}
+
+.zi-stat-num {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-cyan);
+}
+
+.zi-stat-lbl {
+  font-size: 0.57rem;
+  color: var(--color-muted);
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+/* ── Education cards ── */
+.zi-edu-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.6rem 0.7rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(148, 163, 184, 0.07);
+  border-radius: 10px;
+  margin-bottom: 0.45rem;
+}
+
+.zi-edu-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.zi-edu-degree {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.1rem;
+}
+
+.zi-edu-school {
+  font-size: 0.73rem;
+  color: var(--color-muted);
+  margin-bottom: 0.08rem;
+}
+
+.zi-edu-meta {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(100, 116, 139, 0.85);
+}
+
+/* ── Skill bars ── */
+.zi-skillbars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+
+.zi-skillbar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.zi-skillbar-name {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--color-text);
+  width: 82px;
+  flex-shrink: 0;
+}
+
+.zi-skillbar-track {
+  flex: 1;
+  height: 5px;
+  background: rgba(148, 163, 184, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.zi-skillbar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.zi-skillbar-pct {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  width: 30px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── Tech tag grid ── */
+.zi-tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+}
+
+.zi-tech-tag {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.04em;
+  padding: 0.22rem 0.6rem;
+  border-radius: 6px;
+  color: var(--color-cyan);
+  background: rgba(0, 217, 255, 0.06);
+  border: 1px solid rgba(0, 217, 255, 0.18);
+}
+
+.zi-tech-tag-red {
+  color: #ff2d20;
+  background: rgba(255, 45, 32, 0.06);
+  border-color: rgba(255, 45, 32, 0.2);
+}
+
+.zi-tech-tag-dim {
+  color: var(--color-muted);
+  background: rgba(148, 163, 184, 0.04);
+  border-color: rgba(148, 163, 184, 0.12);
+}
+
+/* ── Project cards ── */
+.zi-project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.zi-project-card {
+  padding: 0.7rem 0.85rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(148, 163, 184, 0.07);
+  border-left: 3px solid;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.zi-project-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.zi-project-name {
+  font-size: 0.86rem;
+  font-weight: 700;
+  margin-bottom: 0.18rem;
+}
+
+.zi-project-stack {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(148, 163, 184, 0.65);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.03em;
+}
+
+.zi-project-desc {
+  font-size: 0.77rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* ── Experience list ── */
+.zi-exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.zi-exp-item {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+}
+
+.zi-exp-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.zi-exp-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+}
+
+.zi-exp-company {
+  font-size: 0.76rem;
+  color: var(--color-text);
+  margin-bottom: 0.06rem;
+}
+
+.zi-exp-period {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(100, 116, 139, 0.85);
+  margin-bottom: 0.4rem;
+}
+
+.zi-exp-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.zi-exp-bullets li {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.zi-exp-bullets li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: rgba(0, 217, 255, 0.5);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .zi-wrapper {
+    right: 0.75rem;
+    width: 340px;
+  }
+}
+
+@media (max-width: 680px) {
+  .zi-wrapper {
+    right: 0;
+    top: auto;
+    bottom: 3.5rem;
+    transform: none;
+    width: 100%;
+    padding: 0 0.75rem;
+    max-height: 55vh;
+  }
+
+  .zi-panel {
+    border-radius: 14px;
+    padding: 1.1rem 1.1rem;
+    max-height: 55vh;
+  }
+}
+

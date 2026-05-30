@@ -5,181 +5,371 @@ import { useFrame } from "@react-three/fiber";
 import { Text, Billboard } from "@react-three/drei";
 import { Group, Vector3, MathUtils } from "three";
 
-const CODE_SNIPPETS = [
-  `export default function Hero() {\n  return (\n    <section className="hero">\n      <h1>Build. <span>Ship.</span></h1>\n    </section>\n  )\n}`,
-  `interface Project {\n  name: string\n  stack: string[]\n  live: URL\n}`,
-  `const [data, setData] =\n  useState<Project[]>([])`,
-  `// Next.js App Router\nexport default async\nfunction Page() {\n  const data = await fetch(...)\n  return <Layout>{data}</Layout>\n}`,
-  `// TypeScript strict mode\ntype ApiResponse<T> = {\n  data: T\n  status: number\n  message: string\n}`,
-  `// SSM Future Innovation\nimport { NextPage } from 'next'\nconst Home: NextPage = () =>\n  <main>...</main>`,
-];
+const FONT = "/fonts/SpaceMono-Regular.woff";
 
-interface CodeBillboardProps {
+// ─── Tech Node — floating orb for each skill ─────────────────────────────────
+interface TechNodeProps {
   position: [number, number, number];
-  text: string;
-  baseOpacity: number;
+  label: string;
   color: string;
+  radius?: number;
+  speed?: number;
+  phaseOffset?: number;
 }
 
-function CodeBillboard({ position, text, baseOpacity, color }: CodeBillboardProps) {
-  const ref = useRef<Group>(null!);
-  const pos = useMemo(() => new Vector3(...position), [position]);
+function TechNode({ position, label, color, radius = 0.55, speed = 0.7, phaseOffset = 0 }: TechNodeProps) {
+  const ref = useRef<any>(null!);
+  const baseY = position[1];
 
-  useFrame(({ camera }) => {
-    if (!ref.current) return;
-    const dist = camera.position.distanceTo(pos);
-    const alpha = MathUtils.clamp(MathUtils.mapLinear(dist, 5, 35, 1, 0), 0, 1);
-    ref.current.children.forEach((child: any) => {
-      if (child.material) child.material.opacity = alpha * baseOpacity;
-    });
-  });
-
-  return (
-    <Billboard ref={ref} position={position}>
-      {/* Background panel */}
-      <mesh>
-        <planeGeometry args={[3.2, 1.8]} />
-        <meshBasicMaterial
-          color="#0a1628"
-          transparent
-          opacity={0.6}
-        />
-      </mesh>
-      {/* Border */}
-      <mesh position={[0, 0, 0.001]}>
-        <planeGeometry args={[3.22, 1.82]} />
-        <meshBasicMaterial color={color} transparent opacity={0.25} />
-      </mesh>
-      {/* Code text */}
-      <Text
-        position={[0, 0, 0.01]}
-        fontSize={0.13}
-        font="/fonts/SpaceMono-Regular.woff"
-        color={color}
-        maxWidth={3}
-        lineHeight={1.5}
-        anchorX="center"
-        anchorY="middle"
-        fillOpacity={1}
-      >
-        {text}
-      </Text>
-    </Billboard>
-  );
-}
-
-// React atom logo — 3 elliptical orbits
-function ReactLogo({ position }: { position: [number, number, number] }) {
-  const ref = useRef<Group>(null!);
   useFrame(({ clock }) => {
-    if (ref.current) ref.current.rotation.y = clock.getElapsedTime() * 0.2;
+    const t = clock.getElapsedTime();
+    if (ref.current) {
+      ref.current.position.y = baseY + Math.sin(t * speed + phaseOffset) * 0.25;
+    }
   });
 
   return (
     <group ref={ref} position={position}>
-      {/* Nucleus */}
+      {/* Outer glow ring */}
       <mesh>
-        <sphereGeometry args={[0.5, 12, 12]} />
-        <meshStandardMaterial color="#00d9ff" emissive="#00d9ff" emissiveIntensity={1.2} />
+        <torusGeometry args={[radius * 1.35, 0.03, 8, 32]} />
+        <meshStandardMaterial color={color} emissive={color} emissiveIntensity={0.6} transparent opacity={0.5} />
       </mesh>
-      {/* 3 orbital rings */}
-      {[0, Math.PI / 3, (2 * Math.PI) / 3].map((angle, i) => (
-        <group key={i} rotation={[Math.PI / 2, 0, angle]}>
-          <mesh>
-            <torusGeometry args={[2.5, 0.06, 8, 64]} />
-            <meshStandardMaterial color="#00d9ff" emissive="#00d9ff" emissiveIntensity={0.8} transparent opacity={0.85} />
-          </mesh>
-          {/* Electron */}
-          <mesh position={[2.5, 0, 0]}>
-            <sphereGeometry args={[0.18, 8, 8]} />
-            <meshStandardMaterial color="#ffffff" emissive="#00d9ff" emissiveIntensity={2} />
-          </mesh>
-        </group>
-      ))}
-      {/* "Next.js" label below */}
-      <Text
-        position={[0, -3.5, 0]}
-        fontSize={0.7}
-        font="/fonts/SpaceMono-Regular.woff"
-        color="#00d9ff"
-        anchorX="center"
-        anchorY="middle"
-      >
-        NEXT.JS
+      {/* Main orb */}
+      <mesh>
+        <sphereGeometry args={[radius, 16, 16]} />
+        <meshStandardMaterial
+          color="#0a1628"
+          emissive={color}
+          emissiveIntensity={0.35}
+          roughness={0.2}
+          metalness={0.6}
+        />
+      </mesh>
+      {/* Point light for glow effect */}
+      <pointLight color={color} intensity={1.2} distance={4} />
+      {/* Label */}
+      <Billboard>
+        <Text
+          position={[0, radius + 0.45, 0]}
+          fontSize={0.2}
+          font={FONT}
+          color={color}
+          anchorX="center"
+          anchorY="bottom"
+        >
+          {label}
+        </Text>
+      </Billboard>
+    </group>
+  );
+}
+
+// ─── Category header panel ────────────────────────────────────────────────────
+function CategoryLabel({
+  position,
+  text,
+  color,
+}: {
+  position: [number, number, number];
+  text: string;
+  color: string;
+}) {
+  return (
+    <group position={position}>
+      <mesh>
+        <planeGeometry args={[5.5, 0.6]} />
+        <meshBasicMaterial color="#060d1e" transparent opacity={0.7} />
+      </mesh>
+      <mesh position={[0, 0, -0.005]}>
+        <planeGeometry args={[5.55, 0.65]} />
+        <meshBasicMaterial color={color} transparent opacity={0.2} />
+      </mesh>
+      <Text position={[0, 0, 0.01]} fontSize={0.24} font={FONT} color={color} anchorX="center" anchorY="middle">
+        {text}
       </Text>
     </group>
   );
 }
 
-// Glass tower buildings
-function GlassTower({ position, height, color }: { position: [number, number, number]; height: number; color: string }) {
-  const ref = useRef<any>(null!);
-  useFrame(({ clock }) => {
-    if (ref.current) {
-      ref.current.material.emissiveIntensity = 0.15 + 0.05 * Math.sin(clock.getElapsedTime() * 0.8 + position[0]);
-    }
-  });
+// ─── Skill bar panel ──────────────────────────────────────────────────────────
+function SkillBar({
+  label,
+  level,
+  color,
+  yOffset,
+  panelWidth = 6,
+}: {
+  label: string;
+  level: number; // 0–1
+  color: string;
+  yOffset: number;
+  panelWidth?: number;
+}) {
+  const trackW = panelWidth - 2.6;
+  const fillW = trackW * level;
+
   return (
-    <mesh ref={ref} position={[position[0], height / 2, position[2]]}>
-      <boxGeometry args={[3, height, 3]} />
-      <meshStandardMaterial
-        color="#0c1a2e"
-        emissive={color}
-        emissiveIntensity={0.15}
-        transparent
-        opacity={0.75}
-        roughness={0.1}
-        metalness={0.5}
-      />
-    </mesh>
+    <group position={[0, yOffset, 0.01]}>
+      {/* Label */}
+      <Text
+        position={[-(panelWidth / 2 - 0.2), 0, 0]}
+        fontSize={0.17}
+        font={FONT}
+        color="#cbd5e1"
+        anchorX="left"
+        anchorY="middle"
+      >
+        {label}
+      </Text>
+      {/* Track background */}
+      <mesh position={[(panelWidth / 2 - trackW / 2 - 0.3), 0, 0]}>
+        <planeGeometry args={[trackW, 0.12]} />
+        <meshBasicMaterial color="#1e293b" transparent opacity={0.8} />
+      </mesh>
+      {/* Fill */}
+      <mesh position={[(panelWidth / 2 - trackW + fillW / 2 - 0.3), 0, 0.001]}>
+        <planeGeometry args={[fillW, 0.12]} />
+        <meshBasicMaterial color={color} transparent opacity={0.9} />
+      </mesh>
+      {/* Percent */}
+      <Text
+        position={[(panelWidth / 2 - 0.1), 0, 0.002]}
+        fontSize={0.14}
+        font={FONT}
+        color={color}
+        anchorX="right"
+        anchorY="middle"
+      >
+        {`${Math.round(level * 100)}%`}
+      </Text>
+    </group>
   );
 }
 
+// ─── Floating skill-bar card ──────────────────────────────────────────────────
+interface SkillCardProps {
+  position: [number, number, number];
+  rotation?: [number, number, number];
+  title: string;
+  accentColor: string;
+  skills: { label: string; level: number }[];
+  width?: number;
+}
 
+function SkillCard({ position, rotation, title, accentColor, skills, width = 6 }: SkillCardProps) {
+  const ref = useRef<Group>(null!);
+  const baseY = position[1];
+
+  useFrame(({ clock }) => {
+    if (ref.current) {
+      ref.current.position.y = baseY + Math.sin(clock.getElapsedTime() * 0.5 + position[0] * 0.3) * 0.18;
+      ref.current.rotation.y = Math.sin(clock.getElapsedTime() * 0.2 + position[2] * 0.1) * 0.04;
+    }
+  });
+
+  const rowH = 0.42;
+  const totalH = skills.length * rowH + 1.4;
+
+  return (
+    <group ref={ref} position={position} rotation={rotation ?? [0, 0, 0]}>
+      <mesh>
+        <planeGeometry args={[width, totalH]} />
+        <meshBasicMaterial color="#05091c" transparent opacity={0.72} />
+      </mesh>
+      <mesh position={[0, 0, -0.004]}>
+        <planeGeometry args={[width + 0.06, totalH + 0.06]} />
+        <meshBasicMaterial color={accentColor} transparent opacity={0.22} />
+      </mesh>
+      {/* Header bar */}
+      <mesh position={[0, totalH / 2 - 0.06, 0.01]}>
+        <planeGeometry args={[width, 0.12]} />
+        <meshBasicMaterial color={accentColor} transparent opacity={0.8} />
+      </mesh>
+      <Text
+        position={[0, totalH / 2 - 0.45, 0.01]}
+        fontSize={0.26}
+        font={FONT}
+        color={accentColor}
+        anchorX="center"
+        anchorY="middle"
+      >
+        {title}
+      </Text>
+      {skills.map((s, i) => (
+        <SkillBar
+          key={s.label}
+          label={s.label}
+          level={s.level}
+          color={accentColor}
+          yOffset={totalH / 2 - 1.0 - i * rowH}
+          panelWidth={width}
+        />
+      ))}
+    </group>
+  );
+}
+
+// ─── Tech orbit cluster ───────────────────────────────────────────────────────
+function TechOrbitCluster({
+  center,
+  techs,
+  orbitRadius,
+  speed,
+}: {
+  center: [number, number, number];
+  techs: { label: string; color: string }[];
+  orbitRadius: number;
+  speed: number;
+}) {
+  const groupRef = useRef<Group>(null!);
+
+  useFrame(({ clock }) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y = clock.getElapsedTime() * speed;
+    }
+  });
+
+  return (
+    <group position={center}>
+      <group ref={groupRef}>
+        {techs.map((tech, i) => {
+          const angle = (i / techs.length) * Math.PI * 2;
+          const x = Math.cos(angle) * orbitRadius;
+          const z = Math.sin(angle) * orbitRadius;
+          return (
+            <TechNode
+              key={tech.label}
+              position={[x, 0, z]}
+              label={tech.label}
+              color={tech.color}
+              radius={0.5}
+              speed={0.5}
+              phaseOffset={i * 1.2}
+            />
+          );
+        })}
+      </group>
+      {/* Center hub */}
+      <mesh>
+        <octahedronGeometry args={[0.8, 0]} />
+        <meshStandardMaterial color="#0f172a" emissive="#00d9ff" emissiveIntensity={0.6} metalness={0.8} roughness={0.2} />
+      </mesh>
+    </group>
+  );
+}
+
+// ─── Zone export ─────────────────────────────────────────────────────────────
 export default function ZoneFrontend() {
   return (
     <group position={[0, 0, -80]}>
-      {/* Giant React/Next.js Logo */}
-      <ReactLogo position={[-18, 7, -30]} />
 
-      {/* Glass tower skyline */}
-      <GlassTower position={[-30, 0, -20]} height={18} color="#0ea5e9" />
-      <GlassTower position={[-24, 0, -45]} height={28} color="#818cf8" />
-      <GlassTower position={[-35, 0, -55]} height={14} color="#0ea5e9" />
-      <GlassTower position={[25, 0, -30]} height={22} color="#0070f3" />
-      <GlassTower position={[32, 0, -50]} height={16} color="#818cf8" />
+      {/* === Zone header === */}
+      <Text position={[0, 15, -10]} fontSize={0.7} font={FONT} color="#00d9ff" anchorX="center">
+        {"{ ZONE_02 :: SKILLS & TECHNOLOGIES }"}
+      </Text>
 
-      {/* Floating code billboards — 3 depth layers */}
-      {/* Foreground (readable) */}
-      <CodeBillboard position={[-8, 5, -20]} text={CODE_SNIPPETS[0]} baseOpacity={0.95} color="#00d9ff" />
-      <CodeBillboard position={[6, 4, -35]} text={CODE_SNIPPETS[2]} baseOpacity={0.9} color="#818cf8" />
+      {/* ── PROGRAMMING LANGUAGES orbit cluster ── */}
+      <CategoryLabel position={[-16, 13, -5]} text="-- PROGRAMMING LANGUAGES --" color="#00d9ff" />
+      <TechOrbitCluster
+        center={[-16, 8, -10]}
+        orbitRadius={5.5}
+        speed={0.12}
+        techs={[
+          { label: "JavaScript", color: "#f7df1e" },
+          { label: "TypeScript", color: "#3178c6" },
+          { label: "PHP", color: "#8892be" },
+          { label: "Python", color: "#3776ab" },
+          { label: "SQL", color: "#00758f" },
+          { label: "Dart", color: "#00b4ab" },
+          { label: "HTML5", color: "#e34f26" },
+          { label: "CSS3", color: "#1572b6" },
+        ]}
+      />
 
-      {/* Mid-depth */}
-      <CodeBillboard position={[-20, 6, -50]} text={CODE_SNIPPETS[1]} baseOpacity={0.65} color="#0ea5e9" />
-      <CodeBillboard position={[16, 8, -60]} text={CODE_SNIPPETS[3]} baseOpacity={0.6} color="#818cf8" />
+      {/* ── FRONTEND skill bars ── */}
+      <SkillCard
+        position={[8, 10, -20]}
+        rotation={[0, -0.2, 0]}
+        title="-- FRONTEND --"
+        accentColor="#00d9ff"
+        skills={[
+          { label: "React.js", level: 0.88 },
+          { label: "Next.js", level: 0.90 },
+          { label: "Alpine.js", level: 0.85 },
+          { label: "TypeScript", level: 0.82 },
+          { label: "TailwindCSS", level: 0.88 },
+          { label: "HTML / CSS", level: 0.95 },
+        ]}
+      />
 
-      {/* Background (atmospheric) */}
-      <CodeBillboard position={[-30, 10, -90]} text={CODE_SNIPPETS[4]} baseOpacity={0.3} color="#0ea5e9" />
-      <CodeBillboard position={[28, 5, -100]} text={CODE_SNIPPETS[5]} baseOpacity={0.25} color="#818cf8" />
+      {/* ── BACKEND skill bars ── */}
+      <SkillCard
+        position={[-6, 10, -40]}
+        rotation={[0, 0.15, 0]}
+        title="-- BACKEND --"
+        accentColor="#ff2d20"
+        skills={[
+          { label: "Laravel", level: 0.90 },
+          { label: "Node.js", level: 0.75 },
+          { label: "PHP", level: 0.88 },
+          { label: "Python (Django)", level: 0.65 },
+          { label: "REST APIs", level: 0.90 },
+          { label: "Livewire", level: 0.82 },
+        ]}
+      />
 
-      {/* Neon ground lines */}
-      {[-18, -12, 12, 18].map((x) => (
-        <mesh key={x} position={[x, 0.01, -50]} rotation={[-Math.PI / 2, 0, 0]}>
-          <planeGeometry args={[0.03, 120]} />
-          <meshBasicMaterial color="#00d9ff" transparent opacity={0.2} />
+      {/* ── DATABASE skill bars ── */}
+      <SkillCard
+        position={[10, 5, -50]}
+        rotation={[0, -0.1, 0]}
+        title="-- DATABASES --"
+        accentColor="#14b8a6"
+        skills={[
+          { label: "MySQL", level: 0.88 },
+          { label: "PostgreSQL", level: 0.72 },
+          { label: "SQLite", level: 0.80 },
+          { label: "Redis", level: 0.60 },
+        ]}
+      />
+
+      {/* ── DEVOPS / TOOLS skill bars ── */}
+      <SkillCard
+        position={[-8, 4, -65]}
+        rotation={[0, 0.12, 0]}
+        title="-- TOOLS & DEVOPS --"
+        accentColor="#f59e0b"
+        skills={[
+          { label: "Docker", level: 0.80 },
+          { label: "Git / GitHub", level: 0.90 },
+          { label: "Linux / Bash", level: 0.72 },
+          { label: "Postman", level: 0.85 },
+          { label: "VS Code", level: 0.95 },
+          { label: "Filament PHP", level: 0.82 },
+        ]}
+      />
+
+      {/* ── Individual floating tech nodes (right side decoration) ── */}
+      <TechNode position={[18, 7, -15]} label="Vue.js" color="#42b883" speed={0.6} phaseOffset={0.5} />
+      <TechNode position={[20, 4, -30]} label="Flutter" color="#02569b" speed={0.55} phaseOffset={1.2} />
+      <TechNode position={[16, 9, -45]} label="Sass" color="#c69" speed={0.7} phaseOffset={0.8} />
+      <TechNode position={[-20, 8, -20]} label="Inertia.js" color="#9553e9" speed={0.5} phaseOffset={2.0} />
+      <TechNode position={[-18, 5, -55]} label="Webpack" color="#8dd6f9" speed={0.65} phaseOffset={1.5} />
+      <TechNode position={[14, 3, -65]} label="Vite" color="#646cff" speed={0.6} phaseOffset={0.3} />
+
+      {/* ── Neon ground lines ── */}
+      {[-18, -12, -6, 6, 12, 18].map((x) => (
+        <mesh key={x} position={[x, 0.01, -40]} rotation={[-Math.PI / 2, 0, 0]}>
+          <planeGeometry args={[0.03, 100]} />
+          <meshBasicMaterial color="#00d9ff" transparent opacity={0.12} />
         </mesh>
       ))}
 
-      {/* Zone label floating text */}
-      <Text
-        position={[-18, 14, -30]}
-        fontSize={0.6}
-        font="/fonts/SpaceMono-Regular.woff"
-        color="#00d9ff"
-        anchorX="center"
-      >
-        {"{ ZONE_01 :: FRONTEND }"}
-      </Text>
+      {/* Zone lights */}
+      <pointLight position={[-16, 12, -10]} color="#00d9ff" intensity={4} distance={30} />
+      <pointLight position={[8, 12, -20]} color="#3178c6" intensity={2} distance={20} />
+      <pointLight position={[-6, 10, -40]} color="#ff2d20" intensity={2} distance={20} />
+      <pointLight position={[10, 5, -50]} color="#14b8a6" intensity={2} distance={20} />
     </group>
   );
 }
