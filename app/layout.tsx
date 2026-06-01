@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,6 +22,18 @@ export const metadata: Metadata = {
   },
 };
 
+// Proper viewport config — prevents mobile browsers from zooming in
+// on tap and ensures 1:1 pixel ratio with layout width
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#070b14",
+  // Fill the entire screen on notched/punch-hole phones
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -29,6 +41,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Preload the 3D scene font at highest priority — prevents blank text on slow networks */}
+        <link
+          rel="preload"
+          href="/fonts/SpaceMono-Regular.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

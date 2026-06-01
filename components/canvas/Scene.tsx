@@ -22,8 +22,9 @@ export default function Scene() {
       gl={{
         antialias: true,
         alpha: false,
+        powerPreference: "high-performance",
       }}
-      dpr={[1, 1.5]}
+      dpr={[0.8, 1.2]}
       shadows={false}
     >
       <Suspense fallback={null}>

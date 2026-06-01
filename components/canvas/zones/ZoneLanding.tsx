@@ -8,7 +8,7 @@ import { InstancedMesh, Matrix4, Color, Group } from "three";
 const FONT = "/fonts/SpaceMono-Regular.woff";
 
 // ─── Floating hex ambient particles ─────────────────────────────────────────
-function HexParticles({ count = 50 }: { count?: number }) {
+function HexParticles({ count = 20 }: { count?: number }) {
   const ref = useRef<InstancedMesh>(null!);
   const dummy = useMemo(() => new Matrix4(), []);
   const data = useMemo(() =>
@@ -272,12 +272,11 @@ export default function ZoneLanding() {
         height={4.2}
         lines={[
           "> Full Stack Developer",
-          "> MSc Information Technology graduate",
-          "> Passionate about building scalable",
-          "  web apps & immersive interfaces",
-          "> Love clean code, open source,",
-          "  and creative problem solving",
-          "> Based in India",
+          "> 3+ yrs: PHP/Laravel, ASP.NET,",
+          "  Next.js — production deployed",
+          "> From schema design to deployed UI",
+          "> Mobile: Android (Java)",
+          "> Based in Anand, Gujarat, India",
         ]}
       />
 
@@ -288,29 +287,20 @@ export default function ZoneLanding() {
 
       <EduCard
         position={[6, 10.5, -15]}
-        degree="MSc Information Technology"
-        school="University of Gujarat"
-        year="2022 - 2024"
-        grade="CGPA: 8.5 / 10"
+        degree="M.Sc. — Information Technology"
+        school="Shree P.M. Patel Institute, Anand"
+        year="2024 – 2026"
+        grade="GPA: 8.24"
         color="#00d9ff"
       />
 
       <EduCard
         position={[6, 7.5, -18]}
-        degree="BCA - Bachelor of Computer Applications"
-        school="Gujarat University"
-        year="2019 - 2022"
-        grade="CGPA: 8.2 / 10"
+        degree="BCA — Computer Application"
+        school="Shree P.M. Patel College, Anand"
+        year="2021 – 2024"
+        grade="CGPA: 8.32"
         color="#818cf8"
-      />
-
-      <EduCard
-        position={[6, 4.5, -21]}
-        degree="Higher Secondary (Science - PCM)"
-        school="Gujarat Secondary & Higher Sec. Board"
-        year="2018 - 2019"
-        grade="Percentage: 76%"
-        color="#14b8a6"
       />
 
       {/* === SPOKEN LANGUAGES === */}
@@ -324,11 +314,11 @@ export default function ZoneLanding() {
         width={6}
         height={3.2}
         lines={[
-          "> 7+ Programming Languages",
-          "> 10+ Frameworks & Libraries",
-          "> 4+ Years of Coding Experience",
+          "> 3+ Years of Experience",
+          "> 6 Programming Languages",
+          "> PHP · Laravel · Next.js · ASP.NET",
           "> 3 Spoken Languages",
-          "> 5+ Personal Projects Shipped",
+          "> 4 Key Projects Delivered",
         ]}
       />
 

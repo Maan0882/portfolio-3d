@@ -276,86 +276,80 @@ export default function ZoneFrontend() {
         orbitRadius={5.5}
         speed={0.12}
         techs={[
-          { label: "JavaScript", color: "#f7df1e" },
+          { label: "PHP",        color: "#8892be" },
+          { label: "Python",     color: "#3776ab" },
+          { label: "C#",         color: "#9b4f96" },
+          { label: "Java",       color: "#f89820" },
           { label: "TypeScript", color: "#3178c6" },
-          { label: "PHP", color: "#8892be" },
-          { label: "Python", color: "#3776ab" },
-          { label: "SQL", color: "#00758f" },
-          { label: "Dart", color: "#00b4ab" },
-          { label: "HTML5", color: "#e34f26" },
-          { label: "CSS3", color: "#1572b6" },
+          { label: "C / C++",    color: "#00599c" },
         ]}
       />
 
-      {/* ── FRONTEND skill bars ── */}
+      {/* ── WEB & FRAMEWORKS skill bars ── */}
       <SkillCard
         position={[8, 10, -20]}
         rotation={[0, -0.2, 0]}
-        title="-- FRONTEND --"
+        title="-- WEB & FRAMEWORKS --"
         accentColor="#00d9ff"
         skills={[
-          { label: "React.js", level: 0.88 },
-          { label: "Next.js", level: 0.90 },
-          { label: "Alpine.js", level: 0.85 },
-          { label: "TypeScript", level: 0.82 },
-          { label: "TailwindCSS", level: 0.88 },
-          { label: "HTML / CSS", level: 0.95 },
+          { label: "Laravel",     level: 0.90 },
+          { label: "Next.js",     level: 0.88 },
+          { label: "ASP.NET",     level: 0.80 },
+          { label: "Tailwind CSS",level: 0.85 },
+          { label: "HTML5 / CSS3",level: 0.95 },
+          { label: "JS ES6+",     level: 0.88 },
         ]}
       />
 
-      {/* ── BACKEND skill bars ── */}
+      {/* ── BACKEND / LANGUAGES skill bars ── */}
       <SkillCard
         position={[-6, 10, -40]}
         rotation={[0, 0.15, 0]}
-        title="-- BACKEND --"
+        title="-- LANGUAGES --"
         accentColor="#ff2d20"
         skills={[
-          { label: "Laravel", level: 0.90 },
-          { label: "Node.js", level: 0.75 },
-          { label: "PHP", level: 0.88 },
-          { label: "Python (Django)", level: 0.65 },
-          { label: "REST APIs", level: 0.90 },
-          { label: "Livewire", level: 0.82 },
+          { label: "PHP",        level: 0.90 },
+          { label: "Python",     level: 0.78 },
+          { label: "C#",         level: 0.80 },
+          { label: "Java",       level: 0.75 },
+          { label: "TypeScript", level: 0.88 },
+          { label: "C / C++",    level: 0.72 },
         ]}
       />
 
-      {/* ── DATABASE skill bars ── */}
+      {/* ── DATABASES skill bars ── */}
       <SkillCard
         position={[10, 5, -50]}
         rotation={[0, -0.1, 0]}
         title="-- DATABASES --"
         accentColor="#14b8a6"
         skills={[
-          { label: "MySQL", level: 0.88 },
-          { label: "PostgreSQL", level: 0.72 },
-          { label: "SQLite", level: 0.80 },
-          { label: "Redis", level: 0.60 },
+          { label: "MySQL",      level: 0.90 },
+          { label: "SQL Server", level: 0.82 },
         ]}
       />
 
-      {/* ── DEVOPS / TOOLS skill bars ── */}
+      {/* ── TOOLS skill bars ── */}
       <SkillCard
         position={[-8, 4, -65]}
         rotation={[0, 0.12, 0]}
-        title="-- TOOLS & DEVOPS --"
+        title="-- TOOLS --"
         accentColor="#f59e0b"
         skills={[
-          { label: "Docker", level: 0.80 },
-          { label: "Git / GitHub", level: 0.90 },
-          { label: "Linux / Bash", level: 0.72 },
-          { label: "Postman", level: 0.85 },
-          { label: "VS Code", level: 0.95 },
-          { label: "Filament PHP", level: 0.82 },
+          { label: "Git / GitHub",    level: 0.92 },
+          { label: "Vercel",          level: 0.88 },
+          { label: "VS Code",         level: 0.95 },
+          { label: "XAMPP",           level: 0.85 },
+          { label: "Android Studio",  level: 0.75 },
         ]}
       />
 
-      {/* ── Individual floating tech nodes (right side decoration) ── */}
-      <TechNode position={[18, 7, -15]} label="Vue.js" color="#42b883" speed={0.6} phaseOffset={0.5} />
-      <TechNode position={[20, 4, -30]} label="Flutter" color="#02569b" speed={0.55} phaseOffset={1.2} />
-      <TechNode position={[16, 9, -45]} label="Sass" color="#c69" speed={0.7} phaseOffset={0.8} />
-      <TechNode position={[-20, 8, -20]} label="Inertia.js" color="#9553e9" speed={0.5} phaseOffset={2.0} />
-      <TechNode position={[-18, 5, -55]} label="Webpack" color="#8dd6f9" speed={0.65} phaseOffset={1.5} />
-      <TechNode position={[14, 3, -65]} label="Vite" color="#646cff" speed={0.6} phaseOffset={0.3} />
+      {/* ── Individual floating tech nodes (resume tools) ── */}
+      <TechNode position={[18, 7, -15]} label="Android" color="#3ddc84" speed={0.6} phaseOffset={0.5} />
+      <TechNode position={[20, 4, -30]} label="Vercel"  color="#ffffff" speed={0.55} phaseOffset={1.2} />
+      <TechNode position={[16, 9, -45]} label="XAMPP"   color="#f76a1a" speed={0.7} phaseOffset={0.8} />
+      <TechNode position={[-20, 8, -20]} label="GitHub"  color="#ffffff" speed={0.5} phaseOffset={2.0} />
+      <TechNode position={[-18, 5, -55]} label="Git"    color="#f05032" speed={0.65} phaseOffset={1.5} />
 
       {/* ── Neon ground lines ── */}
       {[-18, -12, -6, 6, 12, 18].map((x) => (

@@ -6,17 +6,19 @@ import { useScrollStore } from "@/lib/store";
 function AboutMePanel() {
   return (
     <div className="zi-panel">
-      <div className="zi-tag">⬡ ZONE 01 :: ABOUT ME &amp; EDUCATION</div>
+      <div className="zi-tag">⬡ ABOUT ME &amp; EDUCATION</div>
 
-      {/* Bio section */}
+      {/* Bio */}
       <div className="zi-section">
         <h2 className="zi-name">Mansi Gajjar</h2>
         <p className="zi-role">Full Stack Developer</p>
         <p className="zi-bio">
-          Passionate builder of scalable web apps and immersive digital
-          experiences. I love clean code, creative problem solving, and
-          bringing ideas to life through technology.
+          Results-oriented Full Stack Developer with 3+ years of experience
+          building scalable systems across PHP/Laravel, ASP.NET, and Next.js —
+          from architecture and development to production deployment.
         </p>
+
+        {/* Spoken languages */}
         <div className="zi-lang-row">
           <span className="zi-badge zi-badge-purple">English</span>
           <span className="zi-badge zi-badge-purple">Gujarati</span>
@@ -26,23 +28,23 @@ function AboutMePanel() {
 
       <div className="zi-divider" />
 
-      {/* Stats */}
+      {/* At-a-glance stats */}
       <div className="zi-stats">
         <div className="zi-stat">
-          <span className="zi-stat-num">7+</span>
-          <span className="zi-stat-lbl">Languages</span>
-        </div>
-        <div className="zi-stat">
-          <span className="zi-stat-num">10+</span>
-          <span className="zi-stat-lbl">Frameworks</span>
-        </div>
-        <div className="zi-stat">
-          <span className="zi-stat-num">5+</span>
-          <span className="zi-stat-lbl">Projects</span>
+          <span className="zi-stat-num">3+</span>
+          <span className="zi-stat-lbl">Yrs Exp</span>
         </div>
         <div className="zi-stat">
           <span className="zi-stat-num">4+</span>
-          <span className="zi-stat-lbl">Yrs Exp</span>
+          <span className="zi-stat-lbl">Languages</span>
+        </div>
+        <div className="zi-stat">
+          <span className="zi-stat-num">4+</span>
+          <span className="zi-stat-lbl">Projects</span>
+        </div>
+        <div className="zi-stat">
+          <span className="zi-stat-num">8.24</span>
+          <span className="zi-stat-lbl">GPA</span>
         </div>
       </div>
 
@@ -52,30 +54,23 @@ function AboutMePanel() {
       <div className="zi-section">
         <p className="zi-section-title">EDUCATION</p>
 
+        {/* MSc */}
         <div className="zi-edu-card">
           <div className="zi-edu-dot" style={{ background: "#00d9ff" }} />
           <div>
-            <div className="zi-edu-degree">MSc Information Technology</div>
-            <div className="zi-edu-school">Gujarat University</div>
-            <div className="zi-edu-meta">2022 – 2024 · CGPA 8.5 / 10</div>
+            <div className="zi-edu-degree">M.Sc. — Information Technology</div>
+            <div className="zi-edu-school">Shree P. M. Patel Institute of PG Studies &amp; Research in Applied Science, Anand</div>
+            <div className="zi-edu-meta">2024 – 2026 · GPA 8.24</div>
           </div>
         </div>
 
+        {/* BCA */}
         <div className="zi-edu-card">
           <div className="zi-edu-dot" style={{ background: "#818cf8" }} />
           <div>
-            <div className="zi-edu-degree">BCA — Bachelor of Computer Applications</div>
-            <div className="zi-edu-school">Gujarat University</div>
-            <div className="zi-edu-meta">2019 – 2022 · CGPA 8.2 / 10</div>
-          </div>
-        </div>
-
-        <div className="zi-edu-card">
-          <div className="zi-edu-dot" style={{ background: "#14b8a6" }} />
-          <div>
-            <div className="zi-edu-degree">Higher Secondary — Science (PCM)</div>
-            <div className="zi-edu-school">Gujarat Secondary Education Board</div>
-            <div className="zi-edu-meta">2018 – 2019 · 76%</div>
+            <div className="zi-edu-degree">BCA — Bachelor of Computer Application</div>
+            <div className="zi-edu-school">Shree P. M. Patel College of Computer Science &amp; Technology, Anand</div>
+            <div className="zi-edu-meta">2021 – 2024 · CGPA 8.32</div>
           </div>
         </div>
       </div>
@@ -83,78 +78,64 @@ function AboutMePanel() {
   );
 }
 
-// ─── Zone 2: Skills & Technologies ───────────────────────────────────────────
-const PROG_LANGS = [
-  { name: "JavaScript", level: 90, color: "#f7df1e" },
-  { name: "TypeScript",  level: 82, color: "#3178c6" },
-  { name: "PHP",         level: 88, color: "#8892be" },
-  { name: "Python",      level: 65, color: "#3776ab" },
-  { name: "SQL",         level: 88, color: "#00758f" },
-  { name: "Dart",        level: 60, color: "#00b4ab" },
-  { name: "HTML / CSS",  level: 95, color: "#e34f26" },
-  { name: "Bash / Shell",level: 55, color: "#4ade80" },
-];
-
-const FRAMEWORKS = [
-  { label: "Next.js",    color: "cyan" },
-  { label: "React",      color: "cyan" },
-  { label: "Laravel",    color: "red"  },
-  { label: "Alpine.js",  color: "cyan" },
-  { label: "Livewire",   color: "red"  },
-  { label: "Node.js",    color: "cyan" },
-  { label: "Vue.js",     color: "cyan" },
-  { label: "Flutter",    color: "cyan" },
-  { label: "Filament",   color: "red"  },
-  { label: "Tailwind",   color: "cyan" },
-  { label: "Inertia.js", color: "cyan" },
-  { label: "Django",     color: "cyan" },
+// ─── Zone 2: Skills — honest grouped display, no fake percentages ─────────────
+const SKILL_GROUPS = [
+  {
+    title: "Languages",
+    color: "#00d9ff",
+    dot: "#00d9ff",
+    skills: ["PHP", "Python", "C#", "Java", "TypeScript", "C / C++"],
+  },
+  {
+    title: "Web & Frameworks",
+    color: "#818cf8",
+    dot: "#818cf8",
+    skills: ["Laravel", "Next.js", "ASP.NET", "Tailwind CSS", "HTML5", "CSS3", "JS ES6+"],
+  },
+  {
+    title: "Databases & Mobile",
+    color: "#14b8a6",
+    dot: "#14b8a6",
+    skills: ["MySQL", "SQL Server", "Android (Java)"],
+  },
 ];
 
 const TOOLS = [
-  "Docker", "Git", "GitHub", "Postman",
-  "VS Code", "Webpack", "Vite", "Linux",
-  "MySQL", "PostgreSQL", "Redis", "SQLite",
+  "Git", "GitHub", "Vercel", "VS Code",
+  "XAMPP", "Android Studio",
 ];
 
 function SkillsPanel() {
   return (
     <div className="zi-panel">
-      <div className="zi-tag">⬡ ZONE 02 :: SKILLS &amp; TECHNOLOGIES</div>
+      <div className="zi-tag">⬡ SKILLS &amp; TECHNOLOGIES</div>
 
-      {/* Programming languages */}
+      {/* Grouped proficiency — no arbitrary percentages */}
       <div className="zi-section">
-        <p className="zi-section-title">PROGRAMMING LANGUAGES</p>
-        <div className="zi-skillbars">
-          {PROG_LANGS.map((lang) => (
-            <div key={lang.name} className="zi-skillbar-row">
-              <span className="zi-skillbar-name">{lang.name}</span>
-              <div className="zi-skillbar-track">
-                <div
-                  className="zi-skillbar-fill"
-                  style={{ width: `${lang.level}%`, background: lang.color }}
-                />
+        <p className="zi-section-title">PROFICIENCY LEVELS</p>
+        <div className="zi-skill-groups">
+          {SKILL_GROUPS.map((g) => (
+            <div key={g.title} className="zi-skill-group">
+              {/* Group header */}
+              <div className="zi-skill-group-header">
+                <div className="zi-skill-group-dot" style={{ background: g.dot }} />
+                <span className="zi-skill-group-title" style={{ color: g.color }}>
+                  {g.title}
+                </span>
               </div>
-              <span className="zi-skillbar-pct" style={{ color: lang.color }}>
-                {lang.level}%
-              </span>
+              {/* Skill chips */}
+              <div className="zi-skill-chips">
+                {g.skills.map((s) => (
+                  <span
+                    key={s}
+                    className="zi-skill-chip"
+                    style={{ borderColor: `${g.dot}33`, color: g.color }}
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="zi-divider" />
-
-      {/* Frameworks */}
-      <div className="zi-section">
-        <p className="zi-section-title">FRAMEWORKS &amp; LIBRARIES</p>
-        <div className="zi-tag-grid">
-          {FRAMEWORKS.map((f) => (
-            <span
-              key={f.label}
-              className={`zi-tech-tag ${f.color === "red" ? "zi-tech-tag-red" : ""}`}
-            >
-              {f.label}
-            </span>
           ))}
         </div>
       </div>
@@ -163,7 +144,7 @@ function SkillsPanel() {
 
       {/* Tools */}
       <div className="zi-section">
-        <p className="zi-section-title">TOOLS &amp; DATABASES</p>
+        <p className="zi-section-title">TOOLS &amp; ENVIRONMENT</p>
         <div className="zi-tag-grid">
           {TOOLS.map((t) => (
             <span key={t} className="zi-tech-tag zi-tech-tag-dim">{t}</span>
@@ -177,52 +158,59 @@ function SkillsPanel() {
 // ─── Zone 3: Projects + Experience ───────────────────────────────────────────
 const PROJECTS = [
   {
-    name: "IAPES — Report Portal",
-    stack: "Laravel · MySQL · Livewire · Filament · DomPDF",
-    desc: "Automated PDF generation system with role-based access for admin, staff & students. Dynamic form builder, Filament admin panel, deployed with CI pipeline.",
+    name: "SSM Future Innovation FZE",
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    desc: "Client-facing production app with SSR/SSG, type-safe architecture, and optimised asset delivery on Vercel. Built for a UAE-based client implementing pixel-perfect UI.",
+    github: "https://github.com/Maan0882",
+    live: "https://ssmfutureinnovationfze.com",
+    color: "#00d9ff",
+  },
+  {
+    name: "IAPES System",
+    stack: "Laravel · PHP · Blade",
+    desc: "Full-featured MVC web application with Eloquent ORM, RESTful routing, CSRF protection, and live deployment. Built and deployed at Techstrota.",
+    github: "https://github.com/Maan0882",
+    live: "https://techstrota.tech",
     color: "#ff2d20",
   },
   {
-    name: "3D Developer Portfolio",
-    stack: "Next.js 16 · Three.js · React Three Fiber · TypeScript",
-    desc: "Immersive scroll-driven WebGL experience with 6 interactive 3D zones, custom camera spline, low-poly character, and post-processing effects.",
+    name: "Attendance Management System",
+    stack: "PHP · MySQL · JavaScript",
+    desc: "Three-tier role-based system (Admin · Teacher · Student) with real-time AJAX reporting, colour-coded attendance alerts, and secure session auth.",
+    github: "https://github.com/Maan0882",
+    live: null,
     color: "#818cf8",
   },
   {
-    name: "Task Manager App",
-    stack: "React · Node.js · Express · PostgreSQL · JWT · WebSocket",
-    desc: "Drag-and-drop Kanban board with real-time updates via WebSocket, JWT auth with refresh tokens, and Docker Compose dev environment.",
-    color: "#14b8a6",
-  },
-  {
-    name: "E-Commerce Platform",
-    stack: "Laravel · Alpine.js · MySQL · Stripe API · Blade",
-    desc: "Multi-vendor marketplace with Stripe payment gateway, advanced filtering, analytics dashboard, inventory management, and email queue.",
+    name: "Quiz Up Platform",
+    stack: "ASP.NET · C# · SQL Server",
+    desc: "Interactive quiz platform with dynamic question creation, partial-credit scoring engine, analytics dashboard, and role-based access.",
+    github: "https://github.com/Maan0882",
+    live: null,
     color: "#f59e0b",
   },
 ];
 
 const EXPERIENCES = [
   {
-    role: "Full Stack Developer Intern",
-    company: "Tech Company — Ahmedabad, India",
-    period: "Jun 2023 – Nov 2023 · 6 Months",
+    role: "Full Stack Developer",
+    company: "Techstrota — Vadodara, GJ",
+    period: "2025 – Present",
     bullets: [
-      "Built Laravel REST APIs consumed by React frontend",
-      "Developed Livewire components for admin tooling",
-      "Integrated DomPDF for automated PDF reporting",
-      "Agile sprints with Git flow, PHPUnit test coverage >80%",
+      "Built and deployed IAPES System — a live multi-module Laravel MVC app with Eloquent ORM, RESTful routing, CSRF protection, and middleware-based access control",
+      "Delivered SSM Future Innovation FZE (Next.js · TypeScript · Tailwind CSS) for a UAE-based client, implementing SSR/SSG, pixel-perfect UI, and Vercel deployment",
+      "Owned the complete stack: schema design, PHP backend logic, responsive Blade frontend, and production server configuration",
     ],
-    color: "#ff2d20",
+    color: "#00d9ff",
   },
   {
-    role: "Freelance Web Developer",
-    company: "Self-employed / Upwork",
-    period: "2022 – Present",
+    role: "Freelance Developer",
+    company: "Self-Initiated Projects — Anand, GJ",
+    period: "2021 – 2024",
     bullets: [
-      "Delivered 5+ client projects end-to-end",
-      "Laravel + Blade CMS sites and React SPAs",
-      "Handled deployment, DNS, and hosting setup",
+      "Attendance Management System (PHP/MySQL/JS): 3-tier role-based platform with real-time AJAX reporting and secure session auth",
+      "Real-Time Chat Application (PHP/MySQL/JS): Multi-user concurrent messaging via AJAX long-polling, hashed passwords, and read indicators",
+      "Quiz Up Platform (ASP.NET/C#/SQL Server): Dynamic quiz creation, custom partial-credit scoring engine, analytics dashboard, and role-based access",
     ],
     color: "#818cf8",
   },
@@ -231,11 +219,11 @@ const EXPERIENCES = [
 function ProjectsPanel() {
   return (
     <div className="zi-panel">
-      <div className="zi-tag">⬡ ZONE 03 :: PROJECTS &amp; EXPERIENCE</div>
+      <div className="zi-tag">⬡ PROJECTS &amp; EXPERIENCE</div>
 
       {/* Projects */}
       <div className="zi-section">
-        <p className="zi-section-title">PROJECTS</p>
+        <p className="zi-section-title">SELECTED PROJECTS</p>
         <div className="zi-project-list">
           {PROJECTS.map((p) => (
             <div
@@ -248,6 +236,30 @@ function ProjectsPanel() {
               </div>
               <div className="zi-project-stack">{p.stack}</div>
               <div className="zi-project-desc">{p.desc}</div>
+
+              {/* Action links — proves the work is real */}
+              <div className="zi-project-links">
+                {p.github && (
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="zi-project-link"
+                  >
+                    GitHub →
+                  </a>
+                )}
+                {p.live && (
+                  <a
+                    href={p.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="zi-project-link zi-project-link-live"
+                  >
+                    Live →
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -285,15 +297,15 @@ export default function ZoneInfoOverlay() {
   const zone = useScrollStore((s) => s.zone);
   const landingVisible = useScrollStore((s) => s.landingVisible);
 
-  const isAbout    = zone === "ZONE_01 :: ABOUT ME"   && !landingVisible;
-  const isSkills   = zone === "ZONE_02 :: SKILLS"     && !landingVisible;
-  const isProjects = zone === "ZONE_03 :: PROJECTS"   && !landingVisible;
+  const isAbout    = zone === "ZONE_01 :: ABOUT ME"  && !landingVisible;
+  const isSkills   = zone === "ZONE_02 :: SKILLS"    && !landingVisible;
+  const isProjects = zone === "ZONE_03 :: PROJECTS"  && !landingVisible;
 
   return (
     <div className="zi-wrapper">
-      {isAbout    && <AboutMePanel key="about"    />}
-      {isSkills   && <SkillsPanel  key="skills"   />}
-      {isProjects && <ProjectsPanel key="projects" />}
+      {isAbout    && <AboutMePanel    key="about"    />}
+      {isSkills   && <SkillsPanel     key="skills"   />}
+      {isProjects && <ProjectsPanel   key="projects" />}
     </div>
   );
 }

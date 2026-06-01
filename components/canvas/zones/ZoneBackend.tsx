@@ -255,70 +255,66 @@ export default function ZoneBackend() {
 
       {/* ─────────── PROJECT CARDS ─────────── */}
 
-      {/* Project 1 — IAPES */}
+      {/* Project 1 — SSM Future Innovation FZE */}
       <ProjectCard
         position={[-12, 11, -10]}
         rotation={[0, 0.25, 0]}
-        title="IAPES — Report Portal"
-        tagline="Intelligent Automated PDF Engine System"
-        stack="Laravel | MySQL | Livewire | Filament PHP | DomPDF"
+        title="SSM Future Innovation FZE"
+        tagline="Client production app for UAE-based client"
+        stack="Next.js | TypeScript | Tailwind CSS | Vercel"
         highlights={[
-          "> Automated PDF generation for academic reports",
-          "> Role-based access for admin / staff / students",
-          "> Dynamic form builder with Livewire components",
-          "> Filament PHP admin panel with CRUD",
-          "> Deployed on shared hosting with CI pipeline",
+          "> SSR/SSG with type-safe architecture",
+          "> Pixel-perfect UI from Figma designs",
+          "> Optimised asset delivery on Vercel",
+          "> Live at ssmfutureinnovationfze.com",
+        ]}
+        accentColor="#00d9ff"
+      />
+
+      {/* Project 2 — IAPES System */}
+      <ProjectCard
+        position={[10, 10, -25]}
+        rotation={[0, -0.2, 0]}
+        title="IAPES System"
+        tagline="Full-featured MVC web app at Techstrota"
+        stack="Laravel | PHP | Blade | MySQL"
+        highlights={[
+          "> Eloquent ORM + RESTful routing",
+          "> CSRF protection & middleware access",
+          "> Schema design to production deploy",
+          "> Live at techstrota.tech",
         ]}
         accentColor="#ff2d20"
       />
 
-      {/* Project 2 — 3D Portfolio */}
+      {/* Project 3 — Attendance Management */}
       <ProjectCard
-        position={[10, 10, -25]}
-        rotation={[0, -0.2, 0]}
-        title="3D Developer Portfolio"
-        tagline="Immersive scroll-driven WebGL experience"
-        stack="Next.js 16 | React Three Fiber | Three.js | Zustand | TypeScript"
+        position={[-10, 5, -40]}
+        rotation={[0, 0.18, 0]}
+        title="Attendance Management"
+        tagline="3-tier role-based attendance platform"
+        stack="PHP | MySQL | JavaScript | AJAX"
         highlights={[
-          "> 6 interactive 3D zones driven by scroll",
-          "> Custom camera spline path with smooth lerp",
-          "> Low-poly hover-bike character with animation",
-          "> Dynamic background color per zone",
-          "> Post-processing: Bloom + Chromatic Aberration",
+          "> Admin / Teacher / Student roles",
+          "> Real-time AJAX reporting",
+          "> Colour-coded attendance alerts",
+          "> Secure session authentication",
         ]}
         accentColor="#818cf8"
       />
 
-      {/* Project 3 — Task Manager */}
-      <ProjectCard
-        position={[-10, 5, -40]}
-        rotation={[0, 0.18, 0]}
-        title="Task Manager App"
-        tagline="Full-stack project & task management system"
-        stack="React | Node.js | Express | PostgreSQL | JWT Auth"
-        highlights={[
-          "> JWT-based auth with refresh tokens",
-          "> Drag-and-drop Kanban board UI",
-          "> Real-time updates via WebSocket",
-          "> REST API with pagination & filtering",
-          "> Docker Compose for local dev environment",
-        ]}
-        accentColor="#14b8a6"
-      />
-
-      {/* Project 4 — E-Commerce */}
+      {/* Project 4 — Quiz Up Platform */}
       <ProjectCard
         position={[12, 4, -55]}
         rotation={[0, -0.15, 0]}
-        title="E-Commerce Platform"
-        tagline="Laravel-powered multi-vendor marketplace"
-        stack="Laravel | Alpine.js | MySQL | Stripe API | Blade"
+        title="Quiz Up Platform"
+        tagline="Interactive quiz & analytics platform"
+        stack="ASP.NET | C# | SQL Server"
         highlights={[
-          "> Multi-vendor product catalog system",
-          "> Stripe payment gateway integration",
-          "> Advanced filtering with Alpine.js reactivity",
-          "> Admin panel: analytics, inventory, orders",
-          "> Email notifications with Laravel Mail + Queue",
+          "> Dynamic quiz question creation",
+          "> Custom partial-credit scoring engine",
+          "> Performance analytics dashboard",
+          "> Role-based access control",
         ]}
         accentColor="#f59e0b"
       />
@@ -329,44 +325,43 @@ export default function ZoneBackend() {
         -- WORK EXPERIENCE --
       </Text>
 
-      {/* Experience 1 */}
+      {/* Experience 1 — Techstrota */}
       <ExperienceEntry
         position={[-10, 10, -70]}
-        role="Full Stack Developer Intern"
-        company="Tech Company — Ahmedabad, India"
-        period="Jun 2023 – Nov 2023  |  6 Months"
+        role="Full Stack Developer"
+        company="Techstrota — Vadodara, GJ"
+        period="2025 – Present"
         lines={[
-          "> Built Laravel APIs consumed by React frontend",
-          "> Developed Livewire components for admin tools",
-          "> Integrated DomPDF for automated reporting",
-          "> Wrote unit tests with PHPUnit, coverage > 80%",
-          "> Collaborated in Agile sprints with Git flow",
+          "> Built IAPES System: Laravel MVC, Eloquent",
+          "  ORM, RESTful routing, middleware access",
+          "> Delivered SSM FZE (Next.js/TS/Tailwind)",
+          "  for UAE client — SSR/SSG + Vercel deploy",
+          "> Full stack: schema → PHP backend → prod",
         ]}
-        color="#ff2d20"
+        color="#00d9ff"
       />
 
-      {/* Experience 2 */}
+      {/* Experience 2 — Freelance */}
       <ExperienceEntry
         position={[9, 9, -80]}
-        role="Freelance Web Developer"
-        company="Self-employed / Upwork"
-        period="2022 – Present"
+        role="Freelance Developer"
+        company="Self-Initiated — Anand, GJ"
+        period="2021 – 2024"
         lines={[
-          "> Delivered 5+ client projects end-to-end",
-          "> Built custom Laravel + Blade CMS sites",
-          "> Created React SPAs with REST API backends",
-          "> Handled deployment, DNS, and hosting setup",
+          "> Attendance Mgmt: PHP/MySQL AJAX system",
+          "> Real-Time Chat: AJAX long-polling app",
+          "> Quiz Up Platform: ASP.NET/C# analytics",
         ]}
         color="#818cf8"
       />
 
-      {/* ─────────── Spinning tech badges (decoration) ─────────── */}
-      <SpinBadge position={[-5, 14, -15]} label="Laravel" color="#ff2d20" />
-      <SpinBadge position={[4, 14, -20]} label="React" color="#00d9ff" />
-      <SpinBadge position={[-3, 13, -30]} label="Python" color="#3776ab" />
-      <SpinBadge position={[5, 12, -45]} label="Docker" color="#0db7ed" />
-      <SpinBadge position={[-4, 11, -60]} label="Next.js" color="#ffffff" />
-      <SpinBadge position={[4, 10, -75]} label="Node.js" color="#339933" />
+      {/* ─────────── Spinning tech badges (resume stack) ─────────── */}
+      <SpinBadge position={[-5, 14, -15]} label="Laravel"    color="#ff2d20" />
+      <SpinBadge position={[4, 14, -20]}  label="Next.js"    color="#ffffff" />
+      <SpinBadge position={[-3, 13, -30]} label="TypeScript" color="#3178c6" />
+      <SpinBadge position={[5, 12, -45]}  label="ASP.NET"    color="#9b4f96" />
+      <SpinBadge position={[-4, 11, -60]} label="MySQL"      color="#00758f" />
+      <SpinBadge position={[4, 10, -75]}  label="PHP"        color="#8892be" />
 
       {/* ─────────── Ground neon lines ─────────── */}
       {[-16, -8, 0, 8, 16].map((x) => (

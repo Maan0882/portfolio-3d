@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { InstancedMesh, Matrix4, Color, Vector3 } from "three";
 
 // ─── Star Field ─────────────────────────────────────────────────────────────
-function StarField({ count = 600 }: { count?: number }) {
+function StarField({ count = 200 }: { count?: number }) {
   const ref = useRef<InstancedMesh>(null!);
   const dummy = useMemo(() => new Matrix4(), []);
 
@@ -31,7 +31,7 @@ function StarField({ count = 600 }: { count?: number }) {
   useFrame(({ clock }) => {
     // Subtle twinkle via scale pulse
     const t = clock.getElapsedTime();
-    for (let i = 0; i < count; i += 8) {
+    for (let i = 0; i < count; i += 12) {
       ref.current.getMatrixAt(i, dummy);
       const s = 0.9 + 0.1 * Math.sin(t * 1.5 + i);
       dummy.elements[0] = s;
@@ -61,7 +61,7 @@ function GroundGrid() {
 }
 
 // ─── Ambient Floating Particles ───────────────────────────────────────────────
-function AmbientParticles({ count = 300 }: { count?: number }) {
+function AmbientParticles({ count = 100 }: { count?: number }) {
   const ref = useRef<InstancedMesh>(null!);
   const positions = useMemo(() => {
     const pos: Vector3[] = [];
