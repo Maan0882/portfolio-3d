@@ -78,7 +78,7 @@ export default function ContactOverlay({ visible }: ContactOverlayProps) {
           <div className="zi-divider mobile-only-divider" style={{ display: 'none' }} />
 
           {/* Right — form */}
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form className="contact-form" onSubmit={handleSubmit} action="https://formspree.io/f/mredwagb">
             <div className="form-group">
               <label htmlFor="c-name">Name</label>
               <input
