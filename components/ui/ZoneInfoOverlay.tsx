@@ -8,69 +8,72 @@ function AboutMePanel() {
     <div className="zi-panel">
       <div className="zi-tag">⬡ ABOUT ME &amp; EDUCATION</div>
 
-      {/* Bio */}
-      <div className="zi-section">
-        <h2 className="zi-name">Mansi Gajjar</h2>
-        <p className="zi-role">Full Stack Developer</p>
-        <p className="zi-bio">
-          Results-oriented Full Stack Developer with 3+ years of experience
-          building scalable systems across PHP/Laravel, ASP.NET, and Next.js —
-          from architecture and development to production deployment.
-        </p>
+      {/* Internal Scroll Window Container */}
+      <div className="zi-scroll-box">
+        {/* Bio */}
+        <div className="zi-section">
+          <h2 className="zi-name">Mansi Gajjar</h2>
+          <p className="zi-role">Full Stack Developer</p>
+          <p className="zi-bio">
+            Results-oriented Full Stack Developer with 3+ years of experience
+            building scalable systems across PHP/Laravel, ASP.NET, and Next.js —
+            from architecture and development to production deployment.
+          </p>
 
-        {/* Spoken languages */}
-        <div className="zi-lang-row">
-          <span className="zi-badge zi-badge-purple">English</span>
-          <span className="zi-badge zi-badge-purple">Gujarati</span>
-          <span className="zi-badge zi-badge-purple">Hindi</span>
-        </div>
-      </div>
-
-      <div className="zi-divider" />
-
-      {/* At-a-glance stats */}
-      <div className="zi-stats">
-        <div className="zi-stat">
-          <span className="zi-stat-num">3+</span>
-          <span className="zi-stat-lbl">Yrs Exp</span>
-        </div>
-        <div className="zi-stat">
-          <span className="zi-stat-num">4+</span>
-          <span className="zi-stat-lbl">Languages</span>
-        </div>
-        <div className="zi-stat">
-          <span className="zi-stat-num">4+</span>
-          <span className="zi-stat-lbl">Projects</span>
-        </div>
-        <div className="zi-stat">
-          <span className="zi-stat-num">8.24</span>
-          <span className="zi-stat-lbl">GPA</span>
-        </div>
-      </div>
-
-      <div className="zi-divider" />
-
-      {/* Education */}
-      <div className="zi-section">
-        <p className="zi-section-title">EDUCATION</p>
-
-        {/* MSc */}
-        <div className="zi-edu-card">
-          <div className="zi-edu-dot" style={{ background: "#00d9ff" }} />
-          <div>
-            <div className="zi-edu-degree">M.Sc. — Information Technology</div>
-            <div className="zi-edu-school">Shree P. M. Patel Institute of PG Studies &amp; Research in Applied Science, Anand</div>
-            <div className="zi-edu-meta">2024 – 2026 · GPA 8.24</div>
+          {/* Spoken languages */}
+          <div className="zi-lang-row">
+            <span className="zi-badge zi-badge-purple">English</span>
+            <span className="zi-badge zi-badge-purple">Gujarati</span>
+            <span className="zi-badge zi-badge-purple">Hindi</span>
           </div>
         </div>
 
-        {/* BCA */}
-        <div className="zi-edu-card">
-          <div className="zi-edu-dot" style={{ background: "#818cf8" }} />
-          <div>
-            <div className="zi-edu-degree">BCA — Bachelor of Computer Application</div>
-            <div className="zi-edu-school">Shree P. M. Patel College of Computer Science &amp; Technology, Anand</div>
-            <div className="zi-edu-meta">2021 – 2024 · CGPA 8.32</div>
+        <div className="zi-divider" />
+
+        {/* At-a-glance stats */}
+        <div className="zi-stats">
+          <div className="zi-stat">
+            <span className="zi-stat-num">3+</span>
+            <span className="zi-stat-lbl">Yrs Exp</span>
+          </div>
+          <div className="zi-stat">
+            <span className="zi-stat-num">4+</span>
+            <span className="zi-stat-lbl">Languages</span>
+          </div>
+          <div className="zi-stat">
+            <span className="zi-stat-num">4+</span>
+            <span className="zi-stat-lbl">Projects</span>
+          </div>
+          <div className="zi-stat">
+            <span className="zi-stat-num">8.24</span>
+            <span className="zi-stat-lbl">GPA</span>
+          </div>
+        </div>
+
+        <div className="zi-divider" />
+
+        {/* Education */}
+        <div className="zi-section">
+          <p className="zi-section-title">EDUCATION</p>
+
+          {/* MSc */}
+          <div className="zi-edu-card">
+            <div className="zi-edu-dot" style={{ background: "#00d9ff" }} />
+            <div className="zi-item-content">
+              <div className="zi-edu-degree">M.Sc. — Information Technology</div>
+              <div className="zi-edu-school">Shree P. M. Patel Institute of PG Studies &amp; Research in Applied Science, Anand</div>
+              <div className="zi-edu-meta">2024 – 2026 · GPA 8.24</div>
+            </div>
+          </div>
+
+          {/* BCA */}
+          <div className="zi-edu-card">
+            <div className="zi-edu-dot" style={{ background: "#818cf8" }} />
+            <div className="zi-item-content">
+              <div className="zi-edu-degree">BCA — Bachelor of Computer Application</div>
+              <div className="zi-edu-school">Shree P. M. Patel College of Computer Science &amp; Technology, Anand</div>
+              <div className="zi-edu-meta">2021 – 2024 · CGPA 8.32</div>
+            </div>
           </div>
         </div>
       </div>
@@ -78,7 +81,7 @@ function AboutMePanel() {
   );
 }
 
-// ─── Zone 2: Skills — honest grouped display, no fake percentages ─────────────
+// ─── Zone 2: Skills ───────────────────────────────────────────────────────────
 const SKILL_GROUPS = [
   {
     title: "Languages",
@@ -110,45 +113,44 @@ function SkillsPanel() {
     <div className="zi-panel">
       <div className="zi-tag">⬡ SKILLS &amp; TECHNOLOGIES</div>
 
-      {/* Grouped proficiency — no arbitrary percentages */}
-      <div className="zi-section">
-        <p className="zi-section-title">PROFICIENCY LEVELS</p>
-        <div className="zi-skill-groups">
-          {SKILL_GROUPS.map((g) => (
-            <div key={g.title} className="zi-skill-group">
-              {/* Group header */}
-              <div className="zi-skill-group-header">
-                <div className="zi-skill-group-dot" style={{ background: g.dot }} />
-                <span className="zi-skill-group-title" style={{ color: g.color }}>
-                  {g.title}
-                </span>
-              </div>
-              {/* Skill chips */}
-              <div className="zi-skill-chips">
-                {g.skills.map((s) => (
-                  <span
-                    key={s}
-                    className="zi-skill-chip"
-                    style={{ borderColor: `${g.dot}33`, color: g.color }}
-                  >
-                    {s}
+      <div className="zi-scroll-box">
+        <div className="zi-section">
+          <p className="zi-section-title">PROFICIENCY LEVELS</p>
+          <div className="zi-skill-groups">
+            {SKILL_GROUPS.map((g) => (
+              <div key={g.title} className="zi-skill-group">
+                <div className="zi-skill-group-header">
+                  <div className="zi-skill-group-dot" style={{ background: g.dot }} />
+                  <span className="zi-skill-group-title" style={{ color: g.color }}>
+                    {g.title}
                   </span>
-                ))}
+                </div>
+                <div className="zi-skill-chips">
+                  {g.skills.map((s) => (
+                    <span
+                      key={s}
+                      className="zi-skill-chip"
+                      style={{ borderColor: `${g.dot}33`, color: g.color }}
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="zi-divider" />
+        <div className="zi-divider" />
 
-      {/* Tools */}
-      <div className="zi-section">
-        <p className="zi-section-title">TOOLS &amp; ENVIRONMENT</p>
-        <div className="zi-tag-grid">
-          {TOOLS.map((t) => (
-            <span key={t} className="zi-tech-tag zi-tech-tag-dim">{t}</span>
-          ))}
+        {/* Tools */}
+        <div className="zi-section">
+          <p className="zi-section-title">TOOLS &amp; ENVIRONMENT</p>
+          <div className="zi-tag-grid">
+            {TOOLS.map((t) => (
+              <span key={t} className="zi-tech-tag zi-tech-tag-dim">{t}</span>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -221,71 +223,62 @@ function ProjectsPanel() {
     <div className="zi-panel">
       <div className="zi-tag">⬡ PROJECTS &amp; EXPERIENCE</div>
 
-      {/* Projects */}
-      <div className="zi-section">
-        <p className="zi-section-title">SELECTED PROJECTS</p>
-        <div className="zi-project-list">
-          {PROJECTS.map((p) => (
-            <div
-              key={p.name}
-              className="zi-project-card"
-              style={{ borderLeftColor: p.color }}
-            >
-              <div className="zi-project-name" style={{ color: p.color }}>
-                {p.name}
-              </div>
-              <div className="zi-project-stack">{p.stack}</div>
-              <div className="zi-project-desc">{p.desc}</div>
+      <div className="zi-scroll-box">
+        {/* Projects */}
+        <div className="zi-section">
+          <p className="zi-section-title">SELECTED PROJECTS</p>
+          <div className="zi-project-list">
+            {PROJECTS.map((p) => (
+              <div
+                key={p.name}
+                className="zi-project-card"
+                style={{ borderLeftColor: p.color }}
+              >
+                <div className="zi-project-name" style={{ color: p.color }}>
+                  {p.name}
+                </div>
+                <div className="zi-project-stack">{p.stack}</div>
+                <div className="zi-project-desc">{p.desc}</div>
 
-              {/* Action links — proves the work is real */}
-              <div className="zi-project-links">
-                {p.github && (
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="zi-project-link"
-                  >
-                    GitHub →
-                  </a>
-                )}
-                {p.live && (
-                  <a
-                    href={p.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="zi-project-link zi-project-link-live"
-                  >
-                    Live →
-                  </a>
-                )}
+                <div className="zi-project-links">
+                  {p.github && (
+                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="zi-project-link">
+                      GitHub →
+                    </a>
+                  )}
+                  {p.live && (
+                    <a href={p.live} target="_blank" rel="noopener noreferrer" className="zi-project-link zi-project-link-live">
+                      Live →
+                    </a>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="zi-divider" />
+        <div className="zi-divider" />
 
-      {/* Experience */}
-      <div className="zi-section">
-        <p className="zi-section-title">WORK EXPERIENCE</p>
-        <div className="zi-exp-list">
-          {EXPERIENCES.map((e) => (
-            <div key={e.role} className="zi-exp-item">
-              <div className="zi-exp-dot" style={{ background: e.color }} />
-              <div style={{ flex: 1 }}>
-                <div className="zi-exp-role" style={{ color: e.color }}>{e.role}</div>
-                <div className="zi-exp-company">{e.company}</div>
-                <div className="zi-exp-period">{e.period}</div>
-                <ul className="zi-exp-bullets">
-                  {e.bullets.map((b) => (
-                    <li key={b}>{b}</li>
-                  ))}
-                </ul>
+        {/* Experience */}
+        <div className="zi-section">
+          <p className="zi-section-title">WORK EXPERIENCE</p>
+          <div className="zi-exp-list">
+            {EXPERIENCES.map((e) => (
+              <div key={e.role} className="zi-exp-item">
+                <div className="zi-exp-dot" style={{ background: e.color }} />
+                <div className="zi-item-content">
+                  <div className="zi-exp-role" style={{ color: e.color }}>{e.role}</div>
+                  <div className="zi-exp-company">{e.company}</div>
+                  <div className="zi-exp-period">{e.period}</div>
+                  <ul className="zi-exp-bullets">
+                    {e.bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -297,15 +290,15 @@ export default function ZoneInfoOverlay() {
   const zone = useScrollStore((s) => s.zone);
   const landingVisible = useScrollStore((s) => s.landingVisible);
 
-  const isAbout    = zone === "ZONE_01 :: ABOUT ME"  && !landingVisible;
-  const isSkills   = zone === "ZONE_02 :: SKILLS"    && !landingVisible;
-  const isProjects = zone === "ZONE_03 :: PROJECTS"  && !landingVisible;
+  const isAbout = zone === "ZONE_01 :: ABOUT ME" && !landingVisible;
+  const isSkills = zone === "ZONE_02 :: SKILLS" && !landingVisible;
+  const isProjects = zone === "ZONE_03 :: PROJECTS" && !landingVisible;
 
   return (
     <div className="zi-wrapper">
-      {isAbout    && <AboutMePanel    key="about"    />}
-      {isSkills   && <SkillsPanel     key="skills"   />}
-      {isProjects && <ProjectsPanel   key="projects" />}
+      {isAbout && <AboutMePanel key="about" />}
+      {isSkills && <SkillsPanel key="skills" />}
+      {isProjects && <ProjectsPanel key="projects" />}
     </div>
   );
 }
