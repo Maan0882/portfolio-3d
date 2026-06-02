@@ -45,8 +45,8 @@ function AboutMePanel() {
             <span className="zi-stat-lbl">Projects</span>
           </div>
           <div className="zi-stat">
-            <span className="zi-stat-num">8.24</span>
-            <span className="zi-stat-lbl">GPA</span>
+            <span className="zi-stat-num">7.89</span>
+            <span className="zi-stat-lbl">CGPA</span>
           </div>
         </div>
 
@@ -62,7 +62,7 @@ function AboutMePanel() {
             <div className="zi-item-content">
               <div className="zi-edu-degree">M.Sc. — Information Technology</div>
               <div className="zi-edu-school">Shree P. M. Patel Institute of PG Studies &amp; Research in Applied Science, Anand</div>
-              <div className="zi-edu-meta">2024 – 2026 · GPA 8.24</div>
+              <div className="zi-edu-meta">2024 – 2026 · CGPA 7.89</div>
             </div>
           </div>
 
