@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "React Three Fiber",
   ],
   authors: [{ name: "Mansi Gajjar" }],
+  icons: {
+    icon: "/favicon.ico", // Points to public/favicon.ico
+  },
   openGraph: {
     title: "Mansi Gajjar | 3D Portfolio",
     description: "Immersive scroll-driven 3D developer portfolio",
