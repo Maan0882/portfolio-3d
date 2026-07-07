@@ -16,12 +16,11 @@ export default function LandingOverlay() {
         <h1 className="landing-name">Mansi Gajjar</h1>
 
         {/* Role + degree on one line */}
-        <p className="landing-title">Full Stack Developer · MSc Information Technology</p>
+        <p className="landing-title">Software Developer · MSc Information Technology</p>
 
         {/* Short sharp hook — what value do I bring? */}
         <p className="landing-hook">
-          I build production-ready web apps with clean architecture,
-          from Laravel APIs to React frontends — shipped and deployed.
+          Highly motivated IT professional with a solid academic foundation in Computer Science and hands-on full-stack development experience.
         </p>
 
         {/* Quick social links — visible immediately */}

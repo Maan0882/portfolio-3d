@@ -65,6 +65,10 @@ export default function ContactOverlay({ visible }: ContactOverlayProps) {
               <span className="contact-link-icon">✉</span>
               <span className="contact-link-text">gajjarmansi2808@gmail.com</span>
             </a>
+            <a href="tel:+918320768968" className="contact-link">
+              <span className="contact-link-icon">📞</span>
+              <span className="contact-link-text">+91 8320768968</span>
+            </a>
             <a
               href="https://www.linkedin.com/in/2808-mansi-gajjar"
               target="_blank"
@@ -84,13 +88,13 @@ export default function ContactOverlay({ visible }: ContactOverlayProps) {
               <span className="contact-link-text">github.com/Maan0882</span>
             </a>
             <a
-              href="https://portfolio-mansi-gajjar.vercel.app"
+              href="https://mansi-portfolio-3d.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="contact-link"
             >
               <span className="contact-link-icon">🌐</span>
-              <span className="contact-link-text">portfolio-mansi-gajjar.vercel.app</span>
+              <span className="contact-link-text">mansi-portfolio-3d.vercel.app</span>
             </a>
           </div>
         </div>

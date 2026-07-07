@@ -15,9 +15,7 @@ function AboutMePanel() {
           <h2 className="zi-name">Mansi Gajjar</h2>
           <p className="zi-role">Full Stack Developer</p>
           <p className="zi-bio">
-            Results-oriented Full Stack Developer with 3+ years of experience
-            building scalable systems across PHP/Laravel, ASP.NET, and Next.js —
-            from architecture and development to production deployment.
+            Highly motivated and detail-oriented IT professional with a solid academic foundation in Computer Science and over 6 months of hands-on project and internship development experience. Proven ability to write clean, efficient, and maintainable code across full-stack ecosystems.
           </p>
 
           {/* Spoken languages */}
@@ -33,11 +31,11 @@ function AboutMePanel() {
         {/* At-a-glance stats */}
         <div className="zi-stats">
           <div className="zi-stat">
-            <span className="zi-stat-num">3+</span>
-            <span className="zi-stat-lbl">Yrs Exp</span>
+            <span className="zi-stat-num">6+</span>
+            <span className="zi-stat-lbl">Mos Exp</span>
           </div>
           <div className="zi-stat">
-            <span className="zi-stat-num">4+</span>
+            <span className="zi-stat-num">8+</span>
             <span className="zi-stat-lbl">Languages</span>
           </div>
           <div className="zi-stat">
@@ -60,8 +58,8 @@ function AboutMePanel() {
           <div className="zi-edu-card">
             <div className="zi-edu-dot" style={{ background: "#00d9ff" }} />
             <div className="zi-item-content">
-              <div className="zi-edu-degree">M.Sc. — Information Technology</div>
-              <div className="zi-edu-school">Shree P. M. Patel Institute of PG Studies &amp; Research in Applied Science, Anand</div>
+              <div className="zi-edu-degree">M.Sc. in Information Technology</div>
+              <div className="zi-edu-school">Sardar Patel University</div>
               <div className="zi-edu-meta">2024 – 2026 · CGPA 7.89</div>
             </div>
           </div>
@@ -70,8 +68,8 @@ function AboutMePanel() {
           <div className="zi-edu-card">
             <div className="zi-edu-dot" style={{ background: "#818cf8" }} />
             <div className="zi-item-content">
-              <div className="zi-edu-degree">BCA — Bachelor of Computer Application</div>
-              <div className="zi-edu-school">Shree P. M. Patel College of Computer Science &amp; Technology, Anand</div>
+              <div className="zi-edu-degree">Bachelor of Computer Application (BCA)</div>
+              <div className="zi-edu-school">Sardar Patel University</div>
               <div className="zi-edu-meta">2021 – 2024 · CGPA 8.32</div>
             </div>
           </div>
@@ -84,28 +82,27 @@ function AboutMePanel() {
 // ─── Zone 2: Skills ───────────────────────────────────────────────────────────
 const SKILL_GROUPS = [
   {
-    title: "Languages",
+    title: "Core Languages",
     color: "#00d9ff",
     dot: "#00d9ff",
-    skills: ["PHP", "Python", "C#", "Java", "TypeScript", "C / C++"],
+    skills: ["Python", "C++", "C", "Java", "JavaScript", "TypeScript", "PHP", "SQL"],
   },
   {
-    title: "Web & Frameworks",
+    title: "Web Frameworks",
     color: "#818cf8",
     dot: "#818cf8",
-    skills: ["Laravel", "Next.js", "ASP.NET", "Tailwind CSS", "HTML5", "CSS3", "JS ES6+"],
+    skills: ["Next.js", "React", "Laravel", "ASP.NET Core", "FastAPI", "HTML5", "CSS Grid"],
   },
   {
-    title: "Databases & Mobile",
+    title: "Databases & Systems",
     color: "#14b8a6",
     dot: "#14b8a6",
-    skills: ["MySQL", "SQL Server", "Android (Java)"],
+    skills: ["MySQL", "SQL Server", "PostgreSQL", "Query Optimization"],
   },
 ];
 
 const TOOLS = [
-  "Git", "GitHub", "Vercel", "VS Code",
-  "XAMPP", "Android Studio",
+  "Git / GitHub", "VS Code IDE", "SDLC", "OOP", "Testing & Debugging", "Troubleshooting"
 ];
 
 function SkillsPanel() {
@@ -161,58 +158,51 @@ function SkillsPanel() {
 const PROJECTS = [
   {
     name: "SSM Future Innovation FZE",
-    stack: "Next.js · TypeScript · Tailwind CSS",
-    desc: "Client-facing production app with SSR/SSG, type-safe architecture, and optimised asset delivery on Vercel. Built for a UAE-based client implementing pixel-perfect UI.",
-    github: "https://github.com/Maan0882",
+    stack: "React · Next.js · TypeScript",
+    desc: "Responsive, client-facing web application developed under an agile workflow. Spearheaded troubleshooting, state management, and edge-case testing.",
+    github: null,
     live: "https://ssmfutureinnovationfze.com",
     color: "#00d9ff",
   },
   {
-    name: "IAPES System",
-    stack: "Laravel · PHP · Blade",
-    desc: "Full-featured MVC web application with Eloquent ORM, RESTful routing, CSRF protection, and live deployment. Built and deployed at Techstrota.",
-    github: "https://github.com/Maan0882",
-    live: "https://techstrota.tech",
-    color: "#ff2d20",
-  },
-  {
-    name: "Attendance Management System",
-    stack: "PHP · MySQL · JavaScript",
-    desc: "Three-tier role-based system (Admin · Teacher · Student) with real-time AJAX reporting, colour-coded attendance alerts, and secure session auth.",
-    github: "https://github.com/Maan0882",
-    live: null,
-    color: "#818cf8",
-  },
-  {
     name: "Quiz Up Platform",
-    stack: "ASP.NET · C# · SQL Server",
-    desc: "Interactive quiz platform with dynamic question creation, partial-credit scoring engine, analytics dashboard, and role-based access.",
+    stack: ".NET · C#",
+    desc: "Interactive testing utility featuring a custom evaluation calculation layer and structured identity access limits.",
     github: "https://github.com/Maan0882",
     live: null,
     color: "#f59e0b",
+  },
+  {
+    name: "Attendance Tracker & Chat App",
+    stack: "AJAX",
+    desc: "Programmed multi-tier communication layers utilizing asynchronous AJAX scripts and secure authentication parameters to verify environment data.",
+    github: "https://github.com/Maan0882",
+    live: null,
+    color: "#818cf8",
   },
 ];
 
 const EXPERIENCES = [
   {
-    role: "Full Stack Developer",
-    company: "Techstrota — Vadodara, GJ",
-    period: "2025 – Present",
+    role: "Full Stack Developer — Internship",
+    company: "TechStrota — Vadodara, Gujarat",
+    period: "2025 – 2026",
     bullets: [
-      "Built and deployed IAPES System — a live multi-module Laravel MVC app with Eloquent ORM, RESTful routing, CSRF protection, and middleware-based access control",
-      "Delivered SSM Future Innovation FZE (Next.js · TypeScript · Tailwind CSS) for a UAE-based client, implementing SSR/SSG, pixel-perfect UI, and Vercel deployment",
-      "Owned the complete stack: schema design, PHP backend logic, responsive Blade frontend, and production server configuration",
+      "Client Project Deployment (SSM Future Innovation FZE, UAE): Co-developed a responsive web application utilizing React, Next.js, and TypeScript.",
+      "Frontend Engineering: Spearheaded troubleshooting, state management, and edge-case testing for the client application.",
+      "Administrative System Architecture: Designed, engineered, and tested a complex, multi-module internal administrative platform.",
+      "Backend & Database Optimization: Wrote clean server-side logic and optimized data retrieval actions.",
     ],
     color: "#00d9ff",
   },
   {
-    role: "Freelance Developer",
-    company: "Self-Initiated Projects — Anand, GJ",
+    role: "Independent Systems Developer",
+    company: "Academic & Self-Initiated Projects — Gujarat",
     period: "2021 – 2024",
     bullets: [
-      "Attendance Management System (PHP/MySQL/JS): 3-tier role-based platform with real-time AJAX reporting and secure session auth",
-      "Real-Time Chat Application (PHP/MySQL/JS): Multi-user concurrent messaging via AJAX long-polling, hashed passwords, and read indicators",
-      "Quiz Up Platform (ASP.NET/C#/SQL Server): Dynamic quiz creation, custom partial-credit scoring engine, analytics dashboard, and role-based access",
+      "Quiz Up Platform (.NET/C#): Designed and built an interactive testing utility featuring a custom evaluation calculation layer.",
+      "Attendance Tracker & Chat App: Programmed multi-tier communication layers utilizing asynchronous AJAX scripts.",
+      "Maintained precise code documentation and utilized version control systems across all development stages.",
     ],
     color: "#818cf8",
   },
