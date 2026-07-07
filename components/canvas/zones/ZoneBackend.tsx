@@ -260,13 +260,13 @@ export default function ZoneBackend() {
         position={[-12, 11, -10]}
         rotation={[0, 0.25, 0]}
         title="SSM Future Innovation FZE"
-        tagline="Client production app for UAE-based client"
-        stack="Next.js | TypeScript | Tailwind CSS | Vercel"
+        tagline="Client-facing web application"
+        stack="React | Next.js | TypeScript"
         highlights={[
-          "> SSR/SSG with type-safe architecture",
-          "> Pixel-perfect UI from Figma designs",
-          "> Optimised asset delivery on Vercel",
-          "> Live at ssmfutureinnovationfze.com",
+          "> Co-developed responsive, agile web app",
+          "> Spearheaded troubleshooting & state management",
+          "> Comprehensive edge-case testing",
+          "> Seamless UI and clean component states",
         ]}
         accentColor="#00d9ff"
       />
@@ -275,14 +275,14 @@ export default function ZoneBackend() {
       <ProjectCard
         position={[10, 10, -25]}
         rotation={[0, -0.2, 0]}
-        title="IAPES System"
-        tagline="Full-featured MVC web app at Techstrota"
-        stack="Laravel | PHP | Blade | MySQL"
+        title="Internal Admin Platform"
+        tagline="Multi-module internal administrative platform"
+        stack="Server-side logic | DB Optimization"
         highlights={[
-          "> Eloquent ORM + RESTful routing",
-          "> CSRF protection & middleware access",
-          "> Schema design to production deploy",
-          "> Live at techstrota.tech",
+          "> Designed complex, multi-module architecture",
+          "> Clean, maintainable server-side logic",
+          "> Optimized data retrieval actions",
+          "> Strict schema and validation rules",
         ]}
         accentColor="#ff2d20"
       />
@@ -291,14 +291,14 @@ export default function ZoneBackend() {
       <ProjectCard
         position={[-10, 5, -40]}
         rotation={[0, 0.18, 0]}
-        title="Attendance Management"
-        tagline="3-tier role-based attendance platform"
-        stack="PHP | MySQL | JavaScript | AJAX"
+        title="Attendance Tracker"
+        tagline="Multi-tier communication & chat app"
+        stack="AJAX | Secure Auth"
         highlights={[
-          "> Admin / Teacher / Student roles",
-          "> Real-time AJAX reporting",
-          "> Colour-coded attendance alerts",
-          "> Secure session authentication",
+          "> Multi-tier communication layers",
+          "> Asynchronous AJAX scripts",
+          "> Secure authentication parameters",
+          "> Verifiable environment data",
         ]}
         accentColor="#818cf8"
       />
@@ -308,13 +308,13 @@ export default function ZoneBackend() {
         position={[12, 4, -55]}
         rotation={[0, -0.15, 0]}
         title="Quiz Up Platform"
-        tagline="Interactive quiz & analytics platform"
-        stack="ASP.NET | C# | SQL Server"
+        tagline="Interactive testing utility"
+        stack=".NET | C#"
         highlights={[
-          "> Dynamic quiz question creation",
-          "> Custom partial-credit scoring engine",
-          "> Performance analytics dashboard",
-          "> Role-based access control",
+          "> Interactive testing utility",
+          "> Custom evaluation calculation layer",
+          "> Structured identity access limits",
+          "> Clean repository management",
         ]}
         accentColor="#f59e0b"
       />
@@ -328,15 +328,15 @@ export default function ZoneBackend() {
       {/* Experience 1 — Techstrota */}
       <ExperienceEntry
         position={[-10, 10, -70]}
-        role="Full Stack Developer"
-        company="Techstrota — Vadodara, GJ"
-        period="2025 – Present"
+        role="Software Developer — Internship"
+        company="TechStrota — Vadodara, GJ"
+        period="2025 – 2026"
         lines={[
-          "> Built IAPES System: Laravel MVC, Eloquent",
-          "  ORM, RESTful routing, middleware access",
-          "> Delivered SSM FZE (Next.js/TS/Tailwind)",
-          "  for UAE client — SSR/SSG + Vercel deploy",
-          "> Full stack: schema → PHP backend → prod",
+          "> Client Project Deployment (SSM FZE, UAE)",
+          "> Frontend Engineering & troubleshooting",
+          "> Administrative System Architecture",
+          "> Backend & Database Optimization",
+          "> Agile sprint planning & debugging",
         ]}
         color="#00d9ff"
       />
@@ -344,13 +344,14 @@ export default function ZoneBackend() {
       {/* Experience 2 — Freelance */}
       <ExperienceEntry
         position={[9, 9, -80]}
-        role="Freelance Developer"
-        company="Self-Initiated — Anand, GJ"
+        role="Independent Systems Developer"
+        company="Self-Initiated Projects — Gujarat"
         period="2021 – 2024"
         lines={[
-          "> Attendance Mgmt: PHP/MySQL AJAX system",
-          "> Real-Time Chat: AJAX long-polling app",
-          "> Quiz Up Platform: ASP.NET/C# analytics",
+          "> Quiz Up Platform (.NET/C#)",
+          "> Attendance Tracker & Chat App (AJAX)",
+          "> Maintained precise code documentation",
+          "> Clean version control repository mgmt",
         ]}
         color="#818cf8"
       />

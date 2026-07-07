@@ -276,12 +276,14 @@ export default function ZoneFrontend() {
         orbitRadius={5.5}
         speed={0.12}
         techs={[
-          { label: "PHP",        color: "#8892be" },
           { label: "Python",     color: "#3776ab" },
-          { label: "C#",         color: "#9b4f96" },
+          { label: "C++",        color: "#00599c" },
+          { label: "C",          color: "#555555" },
           { label: "Java",       color: "#f89820" },
+          { label: "JavaScript", color: "#f7df1e" },
           { label: "TypeScript", color: "#3178c6" },
-          { label: "C / C++",    color: "#00599c" },
+          { label: "PHP",        color: "#8892be" },
+          { label: "SQL",        color: "#00d9ff" },
         ]}
       />
 
@@ -292,12 +294,12 @@ export default function ZoneFrontend() {
         title="-- WEB & FRAMEWORKS --"
         accentColor="#00d9ff"
         skills={[
-          { label: "Laravel",     level: 0.90 },
-          { label: "Next.js",     level: 0.88 },
-          { label: "ASP.NET",     level: 0.80 },
-          { label: "Tailwind CSS",level: 0.85 },
-          { label: "HTML5 / CSS3",level: 0.95 },
-          { label: "JS ES6+",     level: 0.88 },
+          { label: "Next.js",     level: 0.90 },
+          { label: "React",       level: 0.88 },
+          { label: "Laravel",     level: 0.85 },
+          { label: "ASP.NET Core",level: 0.80 },
+          { label: "FastAPI",     level: 0.80 },
+          { label: "HTML5 & CSS3",level: 0.95 },
         ]}
       />
 
@@ -308,12 +310,12 @@ export default function ZoneFrontend() {
         title="-- LANGUAGES --"
         accentColor="#ff2d20"
         skills={[
-          { label: "PHP",        level: 0.90 },
-          { label: "Python",     level: 0.78 },
-          { label: "C#",         level: 0.80 },
-          { label: "Java",       level: 0.75 },
+          { label: "Python",     level: 0.88 },
+          { label: "C++",        level: 0.85 },
+          { label: "JavaScript", level: 0.90 },
           { label: "TypeScript", level: 0.88 },
-          { label: "C / C++",    level: 0.72 },
+          { label: "PHP",        level: 0.80 },
+          { label: "SQL",        level: 0.85 },
         ]}
       />
 
@@ -325,7 +327,8 @@ export default function ZoneFrontend() {
         accentColor="#14b8a6"
         skills={[
           { label: "MySQL",      level: 0.90 },
-          { label: "SQL Server", level: 0.82 },
+          { label: "SQL Server", level: 0.85 },
+          { label: "PostgreSQL", level: 0.80 },
         ]}
       />
 
@@ -337,17 +340,17 @@ export default function ZoneFrontend() {
         accentColor="#f59e0b"
         skills={[
           { label: "Git / GitHub",    level: 0.92 },
-          { label: "Vercel",          level: 0.88 },
           { label: "VS Code",         level: 0.95 },
-          { label: "XAMPP",           level: 0.85 },
-          { label: "Android Studio",  level: 0.75 },
+          { label: "SDLC",            level: 0.85 },
+          { label: "OOP",             level: 0.88 },
+          { label: "Testing",         level: 0.85 },
         ]}
       />
 
       {/* ── Individual floating tech nodes (resume tools) ── */}
-      <TechNode position={[18, 7, -15]} label="Android" color="#3ddc84" speed={0.6} phaseOffset={0.5} />
-      <TechNode position={[20, 4, -30]} label="Vercel"  color="#ffffff" speed={0.55} phaseOffset={1.2} />
-      <TechNode position={[16, 9, -45]} label="XAMPP"   color="#f76a1a" speed={0.7} phaseOffset={0.8} />
+      <TechNode position={[18, 7, -15]} label="FastAPI" color="#009688" speed={0.6} phaseOffset={0.5} />
+      <TechNode position={[20, 4, -30]} label="React"  color="#61dafb" speed={0.55} phaseOffset={1.2} />
+      <TechNode position={[16, 9, -45]} label="PostgreSQL" color="#336791" speed={0.7} phaseOffset={0.8} />
       <TechNode position={[-20, 8, -20]} label="GitHub"  color="#ffffff" speed={0.5} phaseOffset={2.0} />
       <TechNode position={[-18, 5, -55]} label="Git"    color="#f05032" speed={0.65} phaseOffset={1.5} />
 

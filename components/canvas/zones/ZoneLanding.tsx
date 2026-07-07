@@ -271,12 +271,12 @@ export default function ZoneLanding() {
         width={7.5}
         height={4.2}
         lines={[
-          "> Full Stack Developer",
-          "> 3+ yrs: PHP/Laravel, ASP.NET,",
-          "  Next.js — production deployed",
-          "> From schema design to deployed UI",
-          "> Mobile: Android (Java)",
-          "> Based in Anand, Gujarat, India",
+          "> Software Developer",
+          "> 6+ mos: Hands-on project &",
+          "  internship experience",
+          "> Clean, efficient, maintainable code",
+          "> Full-stack ecosystems",
+          "> Based in Gujarat, India",
         ]}
       />
 
@@ -287,17 +287,17 @@ export default function ZoneLanding() {
 
       <EduCard
         position={[6, 10.5, -15]}
-        degree="M.Sc. — Information Technology"
-        school="Shree P.M. Patel Institute, Anand"
+        degree="M.Sc. in IT"
+        school="Sardar Patel University"
         year="2024 – 2026"
-        grade="GPA: 8.24"
+        grade="CGPA: 7.89"
         color="#00d9ff"
       />
 
       <EduCard
         position={[6, 7.5, -18]}
-        degree="BCA — Computer Application"
-        school="Shree P.M. Patel College, Anand"
+        degree="BCA"
+        school="Sardar Patel University"
         year="2021 – 2024"
         grade="CGPA: 8.32"
         color="#818cf8"
@@ -311,12 +311,12 @@ export default function ZoneLanding() {
         position={[0, 4, -25]}
         title="--- AT A GLANCE ---"
         accentColor="#f59e0b"
-        width={6}
+        width={6.5}
         height={3.2}
         lines={[
-          "> 3+ Years of Experience",
-          "> 6 Programming Languages",
-          "> PHP · Laravel · Next.js · ASP.NET",
+          "> 6+ Months of Experience",
+          "> 8 Programming Languages",
+          "> Python · C++ · TS · React",
           "> 3 Spoken Languages",
           "> 4 Key Projects Delivered",
         ]}
