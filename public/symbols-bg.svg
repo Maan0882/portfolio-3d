@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" opacity="0.04">
+  <style>
+    text { font-family: monospace; font-size: 18px; fill: #66d9ed; font-weight: bold; user-select: none; }
+    .muted { fill: #94a3b8; font-size: 14px; }
+    .large { font-size: 24px; opacity: 0.8; }
+  </style>
+  
+  <text x="50" y="80" transform="rotate(-15 50 80)">Python</text>
+  <text x="250" y="120" class="muted">Next.js</text>
+  <text x="450" y="70" class="large">{ }</text>
+  <text x="650" y="150" transform="rotate(10 650 150)">C++</text>
+  
+  <text x="120" y="250" class="large">&lt;/&gt;</text>
+  <text x="350" y="240" transform="rotate(-5 350 240)">React</text>
+  <text x="550" y="280" class="muted">MySQL</text>
+  <text x="750" y="220">C</text>
+  
+  <text x="60" y="380" transform="rotate(20 60 380)">JavaScript</text>
+  <text x="280" y="420">PHP</text>
+  <text x="480" y="360" class="muted">TypeScript</text>
+  <text x="680" y="400" transform="rotate(-10 680 400)">Laravel</text>
+
+  <text x="150" y="520" class="large">() =&gt;</text>
+  <text x="380" y="550" class="muted">SQL</text>
+  <text x="580" y="500" transform="rotate(15 580 500)">Java</text>
+  <text x="720" y="580">HTML5</text>
+
+  <text x="80" y="650" class="muted">Git</text>
+  <text x="250" y="700" transform="rotate(-20 250 700)">FastAPI</text>
+  <text x="450" y="680">PostgreSQL</text>
+  <text x="650" y="720" class="large">SELECT *</text>
+
+  <text x="300" y="60" class="muted">ASP.NET Core</text>
+  <text x="550" y="90" transform="rotate(-5 550 90)">CSS Grid</text>
+  <text x="180" y="780">GitHub</text>
+</svg>

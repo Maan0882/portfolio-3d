@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Mansi Gajjar | 3D Portfolio",
     description: "Immersive scroll-driven 3D developer portfolio",
-    url: "https://portfolio-mansi-gajjar.vercel.app",
+    url: "https://tamalsen.dev",
     type: "website",
   },
 };
@@ -37,24 +37,32 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
+import { Poppins, Roboto_Mono } from 'next/font/google';
+import BackgroundLogos from '../components/BackgroundLogos';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700'],
+  variable: '--font-roboto-mono',
+});
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <head>
-        {/* Preload the 3D scene font at highest priority — prevents blank text on slow networks */}
-        <link
-          rel="preload"
-          href="/fonts/SpaceMono-Regular.woff"
-          as="font"
-          type="font/woff"
-          crossOrigin="anonymous"
-        />
-      </head>
-      <body>{children}</body>
+    <html lang="en" className={`${poppins.variable} ${robotoMono.variable}`} suppressHydrationWarning>
+      <body>
+        <BackgroundLogos />
+        {children}
+      </body>
     </html>
   );
 }
