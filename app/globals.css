@@ -125,6 +125,55 @@ a:hover {
   color: var(--color-cyan);
 }
 
+/* Mobile Menu */
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-heading);
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 110;
+  padding: 0.5rem;
+  line-height: 1;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  z-index: 105;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.mobile-menu-overlay a {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  transition: color 0.2s ease;
+}
+
+.mobile-menu-overlay a:hover {
+  color: var(--color-cyan);
+}
+
+.mobile-theme-toggle {
+  margin-top: 1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* Chunky Underlines */
 .chonky-underline {
   position: relative;
@@ -286,6 +335,7 @@ section {
 .project-links {
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .project-links a {
@@ -334,13 +384,36 @@ section {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  section {
+    padding: 3rem 0;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
   .about-grid {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
   }
-  .nav {
-    display: none;
+  .chonky-underline {
+    white-space: normal;
+  }
+  .desktop-nav {
+    display: none !important;
+  }
+  .hamburger-btn {
+    display: block !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.2rem;
   }
 }

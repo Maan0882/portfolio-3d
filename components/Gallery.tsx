@@ -11,7 +11,7 @@ export default function Gallery() {
         <span className="chonky-underline chonky-underline-magenta">Gallery.</span>
       </h2>
       
-      <div className="gallery-tabs" style={{ display: 'flex', gap: '1rem', marginBottom: '2rem' }}>
+      <div className="gallery-tabs" style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
         <button 
           className="btn"
           onClick={() => setActiveTab('achievements')}
