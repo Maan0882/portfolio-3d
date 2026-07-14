@@ -19,17 +19,7 @@ const scatteredLogos = [
 
 export default function BackgroundLogos() {
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      zIndex: -10,
-      opacity: 'var(--logo-opacity)', /* Extremely subtle, theme-controlled */
-      pointerEvents: 'none',
-      overflow: 'hidden'
-    }}>
+    <div className="bg-logos-container">
       {scatteredLogos.map((item, index) => (
         <img 
           key={index}
