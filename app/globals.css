@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root, html {
   --color-bg: #17161a;
   --color-bg-gradient: radial-gradient(circle at 80% 20%, #1f1b2e, #17161a 70%);
@@ -221,6 +225,10 @@ section {
   align-items: center;
 }
 
+.hero-content {
+  min-width: 0;
+}
+
 @media (max-width: 968px) {
   .hero {
     grid-template-columns: 1fr;
@@ -392,6 +400,7 @@ section {
   line-height: 1.6;
   width: 100%;
   max-width: 100%;
+  min-width: 0;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   text-align: left;
   overflow: hidden;
