@@ -3,6 +3,13 @@ import React from 'react';
 export default function Projects() {
   const projects = [
     {
+      name: "Resumark — ATS Markdown Resume Engine",
+      stack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Print CSS", "Open Source"],
+      desc: "A developer-first, client-side Markdown-to-PDF resume generator featuring bidirectional synchronized scrolling, a real-time ATS diagnostic scorecard, custom themes, and 100% client-side privacy.",
+      github: "https://github.com/mansigajjar-dev/markdown-resume-builder",
+      live: "https://resume-builder-markdown.vercel.app/",
+    },
+    {
       name: "IAPES Project(Internship Administration and Progress Evaluation System)",
       stack: ["React", "Node.js", "Laravel", "Filament"],
       desc: "Developed a comprehensive platform for the IAPES initiative, focusing on intuitive user experience and robust data handling.",

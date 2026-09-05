@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-content">
-        <div className="hero-greeting">Hello, world! I'm</div>
+        <div className="hero-greeting text-blue-700 dark:text-cyan-400 font-medium">Hello, world! I'm</div>
         <h1 className="hero-title">
           <span className="chonky-underline chonky-underline-magenta">Mansi Gajjar.</span>
         </h1>
@@ -18,7 +18,7 @@ export default function Hero() {
           <a href="https://www.linkedin.com/in/2808-mansi-gajjar" target="_blank" rel="noopener noreferrer" className="btn" style={{ padding: '0.75rem 1.5rem', background: 'var(--color-bg)', border: '1px solid var(--color-cyan)', color: 'var(--color-cyan)' }}>
             LinkedIn
           </a>
-          <a href="/Mansi_Gajjar_CV.pdf" download="Mansi_Gajjar_CV.pdf" className="btn">
+          <a href="/Mansi_Gajjar_CV.pdf" download="Mansi_Gajjar_CV.pdf" target="_blank" rel="noopener noreferrer" className="btn">
             Download CV
           </a>
         </div>
