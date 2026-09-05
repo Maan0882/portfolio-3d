@@ -1,10 +1,23 @@
 import React from 'react';
 
 export default function About() {
-  const skills = [
-    "Python", "C++", "C", "Java", "JavaScript", "TypeScript", "PHP", "SQL",
-    "Next.js", "React", "Laravel", "ASP.NET Core", "FastAPI", "HTML5", "CSS Grid",
-    "MySQL", "SQL Server", "PostgreSQL", "Git", "GitHub"
+  const skillCategories = [
+    {
+      title: "Frontend",
+      skills: ["React.js", "Next.js", "TypeScript", "JavaScript (ES6+)", "Tailwind CSS", "Blade", "HTML5", "CSS3"]
+    },
+    {
+      title: "Backend & APIs",
+      skills: ["Laravel (PHP 8.2)", "Filament v3", "RESTful APIs", "FastAPI", "ASP.NET Core", "Node.js"]
+    },
+    {
+      title: "Databases & Architecture",
+      skills: ["MySQL", "PostgreSQL", "MS SQL Server", "Relational Normalization (3NF)", "RBAC"]
+    },
+    {
+      title: "DevOps & Tools",
+      skills: ["Git", "GitHub", "Linux VPS", "Apache", "Docker", "Postman", "VS Code"]
+    }
   ];
 
   return (
@@ -32,9 +45,16 @@ export default function About() {
         </div>
         <div className="about-skills">
           <h3 style={{ fontFamily: 'var(--font-mono)', marginBottom: '1.5rem', color: 'var(--color-text-muted)' }}>My Skills</h3>
-          <div className="skills-list">
-            {skills.map(skill => (
-              <span key={skill} className="skill-tag">{skill}</span>
+          <div className="skill-categories-grid">
+            {skillCategories.map(cat => (
+              <div key={cat.title} className="skill-category-card">
+                <h4 className="skill-category-title">{cat.title}</h4>
+                <div className="skills-list">
+                  {cat.skills.map(skill => (
+                    <span key={skill} className="skill-tag">{skill}</span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
