@@ -1,9 +1,15 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 
 export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const categories = ["All", "Full-Stack", "Client Work", "Open Source"];
+
   const projects = [
     {
       name: "Resumark — ATS Markdown Resume Engine",
+      category: "Open Source",
       stack: ["Next.js 15", "TypeScript", "Tailwind CSS", "Print CSS", "Open Source"],
       desc: "A developer-first, client-side Markdown-to-PDF resume generator featuring bidirectional synchronized scrolling, a real-time ATS diagnostic scorecard, custom themes, and 100% client-side privacy.",
       github: "https://github.com/mansigajjar-dev/markdown-resume-builder",
@@ -11,6 +17,7 @@ export default function Projects() {
     },
     {
       name: "IAPES Project(Internship Administration and Progress Evaluation System)",
+      category: "Full-Stack",
       stack: ["React", "Node.js", "Laravel", "Filament"],
       desc: "Developed a comprehensive platform for the IAPES initiative, focusing on intuitive user experience and robust data handling.",
       github: "https://github.com/Maan0882",
@@ -18,6 +25,7 @@ export default function Projects() {
     },
     {
       name: "Pearl Logistics Website",
+      category: "Client Work",
       stack: ["Next.js", "Tailwind CSS", "UI/UX"],
       desc: "Designed and engineered the Pearl Logistics website, delivering a modern, responsive interface with a focus on elegant aesthetics and performance.",
       github: "https://github.com/Maan0882",
@@ -25,6 +33,7 @@ export default function Projects() {
     },
     {
       name: "SSM Future Innovation FZE",
+      category: "Client Work",
       stack: ["React", "Next.js", "TypeScript"],
       desc: "Responsive, client-facing web application developed under an agile workflow. Spearheaded troubleshooting, state management, and edge-case testing.",
       github: null,
@@ -32,6 +41,7 @@ export default function Projects() {
     },
     {
       name: "Quiz Up Platform",
+      category: "Full-Stack",
       stack: [".NET", "C#"],
       desc: "Interactive testing utility featuring a custom evaluation calculation layer and structured identity access limits.",
       github: "https://github.com/Maan0882",
@@ -39,6 +49,7 @@ export default function Projects() {
     },
     {
       name: "Attendance Tracker & Chat App",
+      category: "Full-Stack",
       stack: ["AJAX", "JavaScript", "PHP"],
       desc: "Programmed multi-tier communication layers utilizing asynchronous AJAX scripts and secure authentication parameters to verify environment data.",
       github: "https://github.com/Maan0882",
@@ -61,14 +72,32 @@ export default function Projects() {
     }
   ];
 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
+    : projects.filter(p => p.category === activeFilter || p.stack.includes(activeFilter));
+
   return (
     <section id="projects" className="projects">
       <h2 className="section-title">
         <span className="chonky-underline chonky-underline-blue">Selected Projects.</span>
       </h2>
+
+      {/* Quick Project Category Filter */}
+      <div className="project-filters" style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '2.5rem' }}>
+        {categories.map(cat => (
+          <button
+            key={cat}
+            onClick={() => setActiveFilter(cat)}
+            className={`filter-btn ${activeFilter === cat ? 'active' : ''}`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
       <div className="projects-grid">
-        {projects.map(p => (
-          <div key={p.name} className="project-card">
+        {filteredProjects.map(p => (
+          <div key={p.name} className="project-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-cyan-500/10">
             <h3 className="project-title">{p.name}</h3>
             <div className="project-tech">
               {p.stack.map(tech => <span key={tech}>{tech}</span>)}
@@ -95,7 +124,7 @@ export default function Projects() {
       </h2>
       <div className="projects-grid">
         {experience.map(e => (
-          <div key={e.role} className="project-card">
+          <div key={e.role} className="project-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-cyan-500/10">
             <h3 className="project-title">{e.role}</h3>
             <div className="project-tech">
               <span>{e.company}</span>

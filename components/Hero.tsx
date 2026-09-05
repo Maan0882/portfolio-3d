@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero-content">
-        <div className="hero-greeting text-blue-700 dark:text-cyan-400 font-medium">Hello, world! I'm</div>
+        <div className="hero-greeting text-blue-600 dark:text-cyan-400 font-medium">Hello, world! I'm</div>
         <h1 className="hero-title">
           <span className="chonky-underline chonky-underline-magenta">Mansi Gajjar.</span>
         </h1>
@@ -32,7 +32,7 @@ export default function Hero() {
         </div>
         <pre style={{ margin: 0, overflowX: 'auto', color: 'var(--color-text)', maxWidth: '100%', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
           <code>
-            <span style={{ color: 'var(--color-text-muted)', fontStyle: 'italic' }}>// Solving bugs is 10% writing code and 90% understanding why it didn't work.</span><br />
+            <span className="code-comment text-slate-500 dark:text-slate-400" style={{ fontStyle: 'italic' }}>// Solving bugs is 10% writing code and 90% understanding why it didn't work.</span><br />
             <span style={{ color: 'var(--code-keyword)' }}>const</span> <span style={{ color: 'var(--color-cyan)' }}>solveBugs</span> = (<span style={{ color: 'var(--code-variable)' }}>code</span>) =&gt; &#123;<br />
             &nbsp;&nbsp;<span style={{ color: 'var(--code-keyword)' }}>while</span> (code.<span style={{ color: 'var(--code-function)' }}>hasBugs</span>()) &#123;<br />
             &nbsp;&nbsp;&nbsp;&nbsp;<span style={{ color: 'var(--code-function)' }}>drinkCoffee</span>();<br />
